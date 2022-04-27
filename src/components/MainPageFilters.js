@@ -30,6 +30,13 @@ function MainPageFilters({ pageTitle }) {
 
   return (
     <div>
+      <button
+        type="button"
+        data-testid="All-category-filter"
+        onClick={ () => dispatch(fetchItemsRecipes('any', '', pageTitle)) }
+      >
+        All
+      </button>
       { categories.length > 0 && categories[0].map((cat, i) => {
         const max = 4;
         if (i > max) return;
