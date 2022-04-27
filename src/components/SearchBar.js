@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { fetchItemsRecipes } from '../redux/actions';
+import { useDispatch } from 'react-redux';
+import { fetchRecipes } from '../redux/actions';
 
-function SearchBar(props) {
+function SearchBar({ pageTitle }) {
   const [searchType, setSearchType] = useState('');
   const [searchValue, setSearchValue] = useState('');
 
-  const checkFirstLetter = () => {
-    const { fetchRecipes, pageTitle } = props;
-    return searchValue.length > 1
-      ? global.alert('Your search must have only 1 (one) character')
-      : fetchRecipes(searchType, searchValue, pageTitle);
-  };
+  const dispatch = useDispatch();
 
-  const searchClick = () => {
-    const { fetchRecipes, pageTitle } = props;
-    return searchType !== 'first-letter-search-radio'
-      ? fetchRecipes(searchType, searchValue, pageTitle)
-      : checkFirstLetter();
-  };
+  const checkFirstLetter = () => (
+    searchValue.length > 1
+      ? global.alert('Your search must have only 1 (one) character')
+      : dispatch(fetchRecipes(searchType, searchValue, pageTitle)));
+
+  const searchClick = () => (
+    searchType !== 'first-letter-search-radio'
+      ? dispatch(fetchRecipes(searchType, searchValue, pageTitle))
+      : checkFirstLetter());
 
   return (
     <div>
@@ -74,12 +72,8 @@ function SearchBar(props) {
   );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchRecipes: (type, value, page) => dispatch(fetchItemsRecipes(type, value, page)),
-});
-
 SearchBar.propTypes = {
   fetchRecipes: PropTypes.func,
 }.isRequired;
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default SearchBar;
