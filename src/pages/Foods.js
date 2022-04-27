@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import Header from '../components/Header';
 import Card from '../components/Card';
+import Footer from '../components/Footer';
 
 function Foods({ history }) {
   const foods = useSelector((state) => state.foods.recipes.meals);
@@ -31,6 +32,7 @@ function Foods({ history }) {
           />);
         })
       }
+      <Footer />
     </div>
   );
 }
