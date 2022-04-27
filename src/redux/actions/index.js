@@ -9,6 +9,9 @@ export function fetchItemsRecipes(type, value, page) {
   const displayAlert = () => {
     global.alert('Sorry, we haven\'t found any recipes for these filters.');
   };
+  console.log(type);
+  console.log(value);
+  console.log(page);
 
   return async (dispatch) => {
     if (page !== 'Foods') {

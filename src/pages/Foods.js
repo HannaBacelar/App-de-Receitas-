@@ -1,17 +1,23 @@
 import { React, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header';
 import Card from '../components/Card';
+import { fetchItemsRecipes } from '../redux/actions';
 
 function Foods({ history }) {
   const foods = useSelector((state) => state.foods.recipes.meals);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!foods) return;
     const firstMealId = foods[0].idMeal;
     if (foods.length === 1) history.push(`/foods/${firstMealId}`);
   }, [foods, history]);
+
+  useEffect(() => {
+    dispatch(fetchItemsRecipes('any', '', 'Foods'));
+  }, [dispatch]);
 
   return (
     <div>
