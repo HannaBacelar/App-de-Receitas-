@@ -35,7 +35,7 @@ function Header(props) {
           </button>
         )}
       </div>
-      { displaySearchBar && <SearchBar /> }
+      { displaySearchBar && <SearchBar pageTitle={ pageTitle } /> }
     </header>
   );
 }
