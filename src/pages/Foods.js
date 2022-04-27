@@ -2,6 +2,7 @@ import { React, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import Header from '../components/Header';
+import Card from '../components/Card';
 
 function Foods({ history }) {
   const foods = useSelector((state) => state.foods.recipes.meals);
@@ -18,6 +19,18 @@ function Foods({ history }) {
         displaySearch
         pageTitle="Foods"
       />
+      {
+        foods && foods.map((meal, index) => {
+          const max = 11;
+          if (index > max) return;
+          return (<Card
+            key={ meal.strMeal }
+            img={ meal.strMealThumb }
+            index={ index }
+            title={ meal.strMeal }
+          />);
+        })
+      }
     </div>
   );
 }
