@@ -5,10 +5,10 @@ import { fetchItemsRecipes } from '../redux/actions';
 
 function MainPageFilters({ pageTitle }) {
   const [categories, setCategories] = useState([]);
+  const [filter, setFilter] = useState();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('oi');
     const getCategories = async () => {
       let url = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
       if (pageTitle !== 'Foods') {
@@ -22,10 +22,15 @@ function MainPageFilters({ pageTitle }) {
     getCategories();
   }, [pageTitle]);
 
+  useEffect(() => {
+    if (typeof filter === 'string') {
+      dispatch(fetchItemsRecipes('category', filter, pageTitle));
+    }
+  }, [filter, pageTitle, dispatch]);
+
   return (
     <div>
       { categories.length > 0 && categories[0].map((cat, i) => {
-        console.log(cat);
         const max = 4;
         if (i > max) return;
         return (
@@ -34,7 +39,12 @@ function MainPageFilters({ pageTitle }) {
             type="button"
             name={ cat.strCategory }
             onClick={ ({ target: { name } }) => {
-              dispatch(fetchItemsRecipes('category', name, pageTitle));
+              setFilter((prevState) => {
+                if (prevState === name) {
+                  return dispatch(fetchItemsRecipes('any', '', pageTitle));
+                }
+                return name;
+              });
             } }
             data-testid={ `${cat.strCategory}-category-filter` }
           >
