@@ -16,7 +16,6 @@ function SearchBar(props) {
 
   const searchClick = () => {
     const { fetchRecipes, pageTitle } = props;
-    console.log(pageTitle);
     return searchType !== 'first-letter-search-radio'
       ? fetchRecipes(searchType, searchValue, pageTitle)
       : checkFirstLetter();
