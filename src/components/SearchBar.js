@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { fetchFoodRecipes } from '../redux/actions';
 
-function SearchBar() {
+function SearchBar(props) {
+  const [searchType, setSearchType] = useState('');
+  const [searchValue, setSearchValue] = useState('');
+
+  const checkFirstLetter = () => {
+    const { fetchFoods } = props;
+    return searchValue.length > 1
+      ? global.alert('Your search must have only 1 (one) character')
+      : fetchFoods(searchType, searchValue);
+  };
+
   return (
     <div>
-      <input type="text" data-testid="search-input" />
+      <input
+        type="text"
+        data-testid="search-input"
+        onChange={ ({ target }) => setSearchValue(target.value) }
+      />
       <div>
         <label htmlFor="ingredient-search-radio">
           <input
@@ -11,6 +28,7 @@ function SearchBar() {
             name="searchRadio"
             id="ingredient-search-radio"
             data-testid="ingredient-search-radio"
+            onClick={ ({ target }) => setSearchType(target.id) }
           />
           Ingredient
         </label>
@@ -21,6 +39,7 @@ function SearchBar() {
             name="searchRadio"
             id="name-search-radio"
             data-testid="name-search-radio"
+            onClick={ ({ target }) => setSearchType(target.id) }
           />
           Name
         </label>
@@ -31,6 +50,7 @@ function SearchBar() {
             name="searchRadio"
             id="first-letter-search-radio"
             data-testid="first-letter-search-radio"
+            onClick={ ({ target }) => setSearchType(target.id) }
           />
           First Letter
         </label>
@@ -38,6 +58,12 @@ function SearchBar() {
         <button
           type="button"
           data-testid="exec-search-btn"
+          onClick={ () => {
+            const { fetchFoods } = props;
+            return searchType !== 'first-letter-search-radio'
+              ? fetchFoods(searchType, searchValue)
+              : checkFirstLetter();
+          } }
         >
           Search
         </button>
@@ -46,4 +72,12 @@ function SearchBar() {
   );
 }
 
-export default SearchBar;
+const mapDispatchToProps = (dispatch) => ({
+  fetchFoods: (type, value) => dispatch(fetchFoodRecipes(type, value)),
+});
+
+SearchBar.propTypes = {
+  fetchFoods: PropTypes.func,
+}.isRequired;
+
+export default connect(null, mapDispatchToProps)(SearchBar);
