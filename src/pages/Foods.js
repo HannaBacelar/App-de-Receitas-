@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header';
 import Card from '../components/Card';
+import Footer from '../components/Footer';
 import { fetchRecipes } from '../redux/actions';
 import MainPageFilters from '../components/MainPageFilters';
 
@@ -41,6 +42,7 @@ function Foods({ history }) {
           />);
         })
       }
+      <Footer />
     </div>
   );
 }
