@@ -1,8 +1,8 @@
-import { React, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { React, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import Header from '../components/Header';
 import Card from '../components/Card';
+import Header from '../components/Header';
 
 function Foods({ history }) {
   const foods = useSelector((state) => state.foods.recipes.meals);
@@ -22,7 +22,7 @@ function Foods({ history }) {
       {
         foods && foods.map((meal, index) => {
           const max = 11;
-          if (index > max) return;
+          if (index > max) return null;
           return (<Card
             key={ meal.strMeal }
             img={ meal.strMealThumb }

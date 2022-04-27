@@ -1,0 +1,33 @@
+.details-image {
+  width: 100%;
+}
+
+.recommendations-container {
+  display: flex;
+  overflow-x: overlay;
+}
+
+.recommendation-card {
+  height: 160px;
+  width: 50%;
+}
+
+.recommendation-img-container {
+  display: flex;
+  max-height: 50%;
+}
+
+.recommendation-img-container img {
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.slider {
+  margin-bottom: 64px;
+}
+
+.start-recipe-btn {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
