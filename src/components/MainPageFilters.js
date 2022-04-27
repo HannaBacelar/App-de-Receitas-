@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { fetchItemsRecipes } from '../redux/actions';
+import { fetchRecipes } from '../redux/actions';
 
 function MainPageFilters({ pageTitle }) {
   const [categories, setCategories] = useState([]);
@@ -24,7 +24,7 @@ function MainPageFilters({ pageTitle }) {
 
   useEffect(() => {
     if (typeof filter === 'string') {
-      dispatch(fetchItemsRecipes('category', filter, pageTitle));
+      dispatch(fetchRecipes('category', filter, pageTitle));
     }
   }, [filter, pageTitle, dispatch]);
 
@@ -33,7 +33,7 @@ function MainPageFilters({ pageTitle }) {
       <button
         type="button"
         data-testid="All-category-filter"
-        onClick={ () => dispatch(fetchItemsRecipes('any', '', pageTitle)) }
+        onClick={ () => dispatch(fetchRecipes('any', '', pageTitle)) }
       >
         All
       </button>

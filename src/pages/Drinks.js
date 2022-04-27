@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header';
 import Card from '../components/Card';
-import { fetchItemsRecipes } from '../redux/actions';
+import { fetchRecipes } from '../redux/actions';
 import MainPageFilters from '../components/MainPageFilters';
 
 function Drinks({ history }) {
@@ -17,7 +17,7 @@ function Drinks({ history }) {
   }, [drinks, history]);
 
   useEffect(() => {
-    dispatch(fetchItemsRecipes('any', '', 'Drinks'));
+    dispatch(fetchRecipes('any', '', 'Drinks'));
   }, [dispatch]);
 
   return (
