@@ -36,6 +36,8 @@ function Foods({ history }) {
             img={ meal.strMealThumb }
             index={ index }
             title={ meal.strMeal }
+            id={ meal.idMeal }
+            type="foods"
           />);
         })
       }

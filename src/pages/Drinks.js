@@ -36,6 +36,8 @@ function Drinks({ history }) {
             img={ drink.strDrinkThumb }
             index={ index }
             title={ drink.strDrink }
+            id={ drink.idDrink }
+            type="drinks"
           />);
         })
       }
