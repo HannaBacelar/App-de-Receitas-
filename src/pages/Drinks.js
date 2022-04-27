@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header';
 import Card from '../components/Card';
 import { fetchItemsRecipes } from '../redux/actions';
+import MainPageFilters from '../components/MainPageFilters';
 
 function Drinks({ history }) {
   const drinks = useSelector((state) => state.drinks.recipes.drinks);
@@ -25,6 +26,7 @@ function Drinks({ history }) {
         displaySearch
         pageTitle="Drinks"
       />
+      <MainPageFilters pageTitle="Drinks" />
       {
         drinks && drinks.map((drink, index) => {
           const max = 11;

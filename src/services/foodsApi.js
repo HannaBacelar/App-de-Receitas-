@@ -1,6 +1,8 @@
 const urlBuilder = (type, value) => {
   const url = 'https://www.themealdb.com/api/json/v1/1/';
   switch (type) {
+  case 'category':
+    return url.concat(`filter.php?c=${value}`);
   case 'any':
     return url.concat('search.php?s=');
   case 'ingredient-search-radio':
