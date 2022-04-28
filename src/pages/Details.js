@@ -6,12 +6,14 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import RecommendationCard from '../components/RecommendationCard';
 import StartRecipeBtn from '../components/StartRecipeBtn';
+import ShareBtn from '../images/shareIcon.svg';
 import '../styles/Details.css';
 
 function Details({ type }) {
   const { id } = useParams();
   const [recipe, setRecipe] = useState({});
   const [recommendations, setRecommendations] = useState([]);
+  const [isToastVisible, setToastVisibility] = useState(false);
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -41,6 +43,15 @@ function Details({ type }) {
     fetchRecipe();
     fetchRecommendations();
   }, [id, type]);
+
+  const handleShare = () => {
+    const toastShownTime = 800;
+    navigator.clipboard.writeText(window.location.href);
+    setToastVisibility(true);
+    setTimeout(() => {
+      setToastVisibility(false);
+    }, toastShownTime);
+  };
 
   const renderIngredients = () => {
     const ingredients = [];
@@ -80,7 +91,13 @@ function Details({ type }) {
         src={ recipe[`str${type}Thumb`] }
       />
       <h2 data-testid="recipe-title">{recipe[`str${type}`]}</h2>
-      <button type="button" data-testid="share-btn">Share</button>
+      <button
+        type="button"
+        data-testid="share-btn"
+        onClick={ handleShare }
+      >
+        <img src={ ShareBtn } alt="" />
+      </button>
       <button type="button" data-testid="favorite-btn">Favorite</button>
       <span data-testid="recipe-category">
         {recipe?.strAlcoholic || recipe.strCategory}
@@ -102,6 +119,9 @@ function Details({ type }) {
         })}
       </Slider>
       <StartRecipeBtn />
+      <div className={ `share-toast ${isToastVisible && 'visible'}` }>
+        <p>Link copied!</p>
+      </div>
     </div>
   );
 }
