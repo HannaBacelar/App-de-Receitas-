@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
+import FavoriteBtn from '../components/FavoriteBtn';
 import RecommendationCard from '../components/RecommendationCard';
 import StartRecipeBtn from '../components/StartRecipeBtn';
-import ShareBtn from '../images/shareIcon.svg';
+import shareIcon from '../images/shareIcon.svg';
 import '../styles/Details.css';
 
 function Details({ type }) {
@@ -96,9 +97,9 @@ function Details({ type }) {
         data-testid="share-btn"
         onClick={ handleShare }
       >
-        <img src={ ShareBtn } alt="" />
+        <img src={ shareIcon } alt="" />
       </button>
-      <button type="button" data-testid="favorite-btn">Favorite</button>
+      <FavoriteBtn id={ id } />
       <span data-testid="recipe-category">
         {recipe?.strAlcoholic || recipe.strCategory}
       </span>
