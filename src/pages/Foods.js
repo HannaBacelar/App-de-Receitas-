@@ -1,11 +1,15 @@
 import { React, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header';
 import Card from '../components/Card';
+import Footer from '../components/Footer';
+import { fetchRecipes } from '../redux/actions';
+import MainPageFilters from '../components/MainPageFilters';
 
 function Foods({ history }) {
   const foods = useSelector((state) => state.foods.recipes.meals);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!foods) return;
@@ -13,12 +17,17 @@ function Foods({ history }) {
     if (foods.length === 1) history.push(`/foods/${firstMealId}`);
   }, [foods, history]);
 
+  useEffect(() => {
+    dispatch(fetchRecipes('any', '', 'Foods'));
+  }, [dispatch]);
+
   return (
     <div>
       <Header
         displaySearch
         pageTitle="Foods"
       />
+      <MainPageFilters pageTitle="Foods" />
       {
         foods && foods.map((meal, index) => {
           const max = 11;
@@ -28,9 +37,12 @@ function Foods({ history }) {
             img={ meal.strMealThumb }
             index={ index }
             title={ meal.strMeal }
+            id={ meal.idMeal }
+            type="foods"
           />);
         })
       }
+      <Footer />
     </div>
   );
 }
