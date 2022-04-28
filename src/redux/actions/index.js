@@ -22,3 +22,10 @@ export function fetchRecipes(type, value, page) {
     dispatch(setFoodRecipes(recipes));
   };
 }
+
+export const setFavoriteRecipe = (payload) => ({ type: 'SET_FAVORITE', payload });
+
+export const removeFavoriteRecipe = (payload) => ({
+  type: 'REMOVE_FAVORITE',
+  payload,
+});

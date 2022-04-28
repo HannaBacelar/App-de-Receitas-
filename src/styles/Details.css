@@ -1,5 +1,30 @@
+.details-container {
+  padding: 16px;
+}
+
+.details-container li {
+  margin-left: 16px;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.details-header .details-btns {
+  align-items: flex-start;
+  display: flex;
+  gap: 16px;
+  padding-top: 8px;
+}
+
 .details-image {
   width: 100%;
+}
+
+.details-container h3 {
+  margin-top: 32px;
 }
 
 .recommendations-container {
@@ -29,7 +54,7 @@
 .start-recipe-btn {
   bottom: 0;
   position: fixed;
-  width: 100%;
+  width: calc(100% - 32px);
 }
 
 .share-toast {
@@ -40,7 +65,8 @@
   color: white;
   display: flex;
   justify-content: center;
-  margin: 0 16px;
+
+  /* margin: 0 16px; */
   opacity: 0;
   padding: 8px 16px;
   position: fixed;

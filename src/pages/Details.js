@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import FavoriteBtn from '../components/FavoriteBtn';
-import RecommendationCard from '../components/RecommendationCard';
+import RecommendationsSection from '../components/RecommendationSection';
+import ShareBtn from '../components/ShareBtn';
+import ShareToast from '../components/ShareToast';
 import StartRecipeBtn from '../components/StartRecipeBtn';
-import shareIcon from '../images/shareIcon.svg';
 import '../styles/Details.css';
 
 function Details({ type }) {
@@ -27,7 +27,6 @@ function Details({ type }) {
         ? result.meals[0]
         : result.drinks[0];
       setRecipe(fetchedRecipe);
-      console.log(fetchedRecipe);
     };
     const fetchRecommendations = async () => {
       const RECOMMENDATION_URL = (type === 'Meal')
@@ -39,7 +38,6 @@ function Details({ type }) {
         ? result.drinks
         : result.meals;
       setRecommendations(fetchedRecommendations);
-      console.log(fetchedRecommendations);
     };
     fetchRecipe();
     fetchRecommendations();
@@ -76,13 +74,6 @@ function Details({ type }) {
     return ingredients;
   };
 
-  const sliderSettings = {
-    dots: true,
-    infinite: false,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-  };
-
   return (
     <div>
       <img
@@ -91,37 +82,38 @@ function Details({ type }) {
         alt=""
         src={ recipe[`str${type}Thumb`] }
       />
-      <h2 data-testid="recipe-title">{recipe[`str${type}`]}</h2>
-      <button
-        type="button"
-        data-testid="share-btn"
-        onClick={ handleShare }
-      >
-        <img src={ shareIcon } alt="" />
-      </button>
-      <FavoriteBtn id={ id } />
-      <span data-testid="recipe-category">
-        {recipe?.strAlcoholic || recipe.strCategory}
-      </span>
-      <h3>Ingredients</h3>
-      <ul>{renderIngredients()}</ul>
-      <h3>Instructions</h3>
-      <p data-testid="instructions">{recipe.strInstructions}</p>
-      {recipe?.strYoutube && <iframe
-        data-testid="video"
-        title={ recipe[`str${type}`] }
-        src={ recipe.strYoutube.replace('watch?v=', 'embed/') }
-      />}
-      <Slider { ...sliderSettings } className="slider">
-        {recommendations.map((item, index) => {
-          const max = 5;
-          if (index > max) return;
-          return <RecommendationCard key={ index } recipe={ item } index={ index } />;
-        })}
-      </Slider>
-      <StartRecipeBtn />
-      <div className={ `share-toast ${isToastVisible && 'visible'}` }>
-        <p>Link copied!</p>
+      <div className="details-container">
+        <div className="details-header">
+          <div>
+            <h2 data-testid="recipe-title">{recipe[`str${type}`]}</h2>
+            <span data-testid="recipe-category">
+              {recipe?.strAlcoholic || recipe.strCategory}
+            </span>
+          </div>
+          <div className="details-btns">
+            <ShareBtn shareHandler={ handleShare } />
+            <FavoriteBtn recipe={ recipe } type={ type } />
+          </div>
+        </div>
+        <ShareToast isToastVisible={ isToastVisible } />
+        <h3>Ingredients</h3>
+        <ul>{renderIngredients()}</ul>
+        <h3>Instructions</h3>
+        <p data-testid="instructions">{recipe.strInstructions}</p>
+        {recipe?.strYoutube && (
+          <>
+            <h3>Video</h3>
+            <iframe
+              data-testid="video"
+              title={ recipe[`str${type}`] }
+              width="100%"
+              src={ recipe.strYoutube.replace('watch?v=', 'embed/') }
+            />
+          </>
+        )}
+        <h3>Recommended</h3>
+        <RecommendationsSection recommendations={ recommendations } />
+        <StartRecipeBtn />
       </div>
     </div>
   );

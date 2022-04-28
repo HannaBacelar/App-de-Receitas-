@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
+import '../styles/Header.css';
 import SearchBar from './SearchBar';
 
 function Header(props) {
@@ -11,7 +12,7 @@ function Header(props) {
 
   return (
     <header>
-      <div>
+      <div className="header-top-row">
         <Link
           to="/profile"
         >
@@ -25,6 +26,7 @@ function Header(props) {
         {displaySearch && (
           <button
             type="button"
+            className="transparent"
             onClick={ () => setDisplaySearchBar(!displaySearchBar) }
           >
             <img
