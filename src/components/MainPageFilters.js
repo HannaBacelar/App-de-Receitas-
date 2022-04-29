@@ -48,7 +48,7 @@ function MainPageFilters({ pageTitle }) {
             onClick={ ({ target: { name } }) => {
               setFilter((prevState) => {
                 if (prevState === name) {
-                  return dispatch(fetchItemsRecipes('any', '', pageTitle));
+                  return dispatch(fetchRecipes('any', '', pageTitle));
                 }
                 return name;
               });
