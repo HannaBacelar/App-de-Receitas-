@@ -1,11 +1,11 @@
-import { React, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
-import Header from '../components/Header';
+import { React, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Card from '../components/Card';
 import Footer from '../components/Footer';
-import { fetchRecipes } from '../redux/actions';
+import Header from '../components/Header';
 import MainPageFilters from '../components/MainPageFilters';
+import { fetchRecipes } from '../redux/actions';
 
 function Foods({ history }) {
   const foods = useSelector((state) => state.foods.recipes.meals);
@@ -31,7 +31,7 @@ function Foods({ history }) {
       {
         foods && foods.map((meal, index) => {
           const max = 11;
-          if (index > max) return;
+          if (index > max) return null;
           return (<Card
             key={ meal.strMeal }
             img={ meal.strMealThumb }

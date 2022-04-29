@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchRecipes } from '../redux/actions';
 
@@ -24,6 +24,7 @@ function SearchBar({ pageTitle }) {
       <input
         type="text"
         data-testid="search-input"
+        className="search-input"
         onChange={ ({ target }) => setSearchValue(target.value) }
       />
       <div>

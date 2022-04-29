@@ -1,0 +1,87 @@
+.details-container {
+  padding: 16px;
+}
+
+.details-container li {
+  margin-left: 16px;
+}
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.details-header .details-btns {
+  align-items: flex-start;
+  display: flex;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.details-image {
+  width: 100%;
+}
+
+.details-container h3 {
+  margin-top: 32px;
+}
+
+.recommendations-container {
+  display: flex;
+  overflow-x: overlay;
+}
+
+.recommendation-card {
+  height: 160px;
+  width: 50%;
+}
+
+.recommendation-img-container {
+  display: flex;
+  max-height: 50%;
+}
+
+.recommendation-img-container img {
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.slider {
+  margin-bottom: 64px;
+}
+
+.start-recipe-btn {
+  bottom: 0;
+  position: fixed;
+  width: calc(100% - 32px);
+}
+
+.share-toast {
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.9);
+  border-radius: 8px;
+  bottom: 64px;
+  color: white;
+  display: flex;
+  justify-content: center;
+
+  /* margin: 0 16px; */
+  opacity: 0;
+  padding: 8px 16px;
+  position: fixed;
+  transition: visibility 0s linear 200ms , opacity 200ms;
+  visibility: hidden;
+  width: calc(100% - 32px);
+  z-index: 3;
+}
+
+.share-toast.visible {
+  opacity: 1;
+  transition: visibility 0s linear 0ms , opacity 200ms;
+  visibility: visible;
+}
+
+.share-toast p {
+  margin: 0;
+}

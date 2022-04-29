@@ -1,0 +1,10 @@
+.header-top-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-input {
+  margin: 16px;
+  width: calc(100% - 32px);
+}
