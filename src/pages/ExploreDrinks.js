@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ExploreButtons from '../components/ExploreButtons';
 
 function ExploreDrinks() {
   return (
@@ -8,6 +9,7 @@ function ExploreDrinks() {
       <Header
         pageTitle="Explore Drinks"
       />
+      <ExploreButtons />
       <Footer />
     </div>
   );
