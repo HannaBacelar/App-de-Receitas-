@@ -55,11 +55,7 @@ function InProgress({ type }) {
               onChange={ () => handleCheckboxChange(i) }
               checked={ checkedIngredients.includes(i) }
             />
-            {recipe[`strIngredient${i}`]}
-            {' '}
-            -
-            {' '}
-            {recipe[`strMeasure${i}`]}
+            {`${recipe[`strIngredient${i}`]} - ${recipe[`strMeasure${i}`]}`}
           </label>,
         );
       }

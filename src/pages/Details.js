@@ -42,11 +42,7 @@ function Details({ type }) {
             key={ `ingredient-${i}` }
             data-testid={ `${i - 1}-ingredient-name-and-measure` }
           >
-            {recipe[`strIngredient${i}`]}
-            {' '}
-            -
-            {' '}
-            {recipe[`strMeasure${i}`]}
+            {`${recipe[`strIngredient${i}`]} - ${recipe[`strMeasure${i}`]}`}
           </li>,
         );
       }
