@@ -24,15 +24,6 @@ function InProgress({ type }) {
   const dispatch = useDispatch();
   let ingredientsLength;
 
-  const handleShare = () => {
-    const toastShownTime = 800;
-    navigator.clipboard.writeText(window.location.href.replace('/in-progress', ''));
-    setToastVisibility(true);
-    setTimeout(() => {
-      setToastVisibility(false);
-    }, toastShownTime);
-  };
-
   const handleCheckboxChange = (index) => {
     if (checkedIngredients.includes(index)) {
       const filteredIngredients = checkedIngredients.filter((i) => i !== index);
@@ -94,7 +85,7 @@ function InProgress({ type }) {
             </span>
           </div>
           <div className="details-btns">
-            <ShareBtn shareHandler={ handleShare } />
+            <ShareBtn toastVisibilityHandler={ setToastVisibility } />
             <FavoriteBtn recipe={ recipe } type={ type } />
           </div>
         </div>
@@ -110,7 +101,6 @@ function InProgress({ type }) {
           onClick={ () => history.push('/done-recipes') }
         >
           Finish Recipe
-
         </button>
       </div>
     </div>

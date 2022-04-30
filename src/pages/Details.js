@@ -32,15 +32,6 @@ function Details({ type }) {
     fetchRecommendations();
   }, [id, type]);
 
-  const handleShare = () => {
-    const toastShownTime = 800;
-    navigator.clipboard.writeText(window.location.href);
-    setToastVisibility(true);
-    setTimeout(() => {
-      setToastVisibility(false);
-    }, toastShownTime);
-  };
-
   const renderIngredients = () => {
     const ingredients = [];
     const max = 20;
@@ -80,7 +71,7 @@ function Details({ type }) {
             </span>
           </div>
           <div className="details-btns">
-            <ShareBtn shareHandler={ handleShare } />
+            <ShareBtn toastVisibilityHandler={ setToastVisibility } />
             <FavoriteBtn recipe={ recipe } type={ type } />
           </div>
         </div>
