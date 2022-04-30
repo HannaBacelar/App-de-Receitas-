@@ -16,7 +16,7 @@ export default function useFetchRecipe(type, id) {
       setFetchedRecipe(fetchedRecipe);
     };
     fetchRecipe();
-  }, []);
+  }, [id, type]);
 
   return recipe;
 }
