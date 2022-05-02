@@ -34,3 +34,8 @@ export const saveProgress = (type, id, ingredientsList) => ({
   type: 'SAVE_PROGRESS',
   payload: { type, id, ingredientsList },
 });
+
+export const setRecipeDone = (doneObj) => ({
+  type: 'SET_RECIPE_DONE',
+  payload: doneObj,
+});

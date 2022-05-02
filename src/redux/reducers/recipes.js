@@ -6,6 +6,7 @@ const INITIAL_STATE = {
 
 const savedRecipes = (state = INITIAL_STATE, action) => {
   let updatedProgress;
+  let updatedDoneRecipes;
   switch (action.type) {
   case 'SET_FAVORITE':
     return { ...state, favoriteRecipes: [...state.favoriteRecipes, action.payload] };
@@ -29,6 +30,15 @@ const savedRecipes = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       inProgressRecipes: updatedProgress,
+    };
+  case 'SET_RECIPE_DONE':
+    updatedDoneRecipes = state.doneRecipes.some((item) => item.id === action.payload.id)
+      ? state.doneRecipes
+      : [...state.doneRecipes, action.payload];
+    localStorage.setItem('doneRecipes', JSON.stringify(updatedDoneRecipes));
+    return {
+      ...state,
+      doneRecipes: updatedDoneRecipes,
     };
   default:
     return state;
