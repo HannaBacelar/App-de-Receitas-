@@ -1,5 +1,7 @@
 const INITIAL_STATE = {
   recipes: [],
+  searchByIngredient: false,
+  selectedIngredient: '',
 };
 
 const drinks = (state = INITIAL_STATE, action) => {

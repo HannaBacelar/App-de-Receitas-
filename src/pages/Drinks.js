@@ -19,7 +19,8 @@ function Drinks({ history }) {
 
   useEffect(() => {
     dispatch(fetchRecipes('any', '', 'Drinks'));
-  }, [dispatch]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
