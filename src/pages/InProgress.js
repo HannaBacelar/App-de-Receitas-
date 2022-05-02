@@ -6,7 +6,7 @@ import FavoriteBtn from '../components/FavoriteBtn';
 import ProgressCheckbox from '../components/ProgressCheckbox';
 import ShareBtn from '../components/ShareBtn';
 import ShareToast from '../components/ShareToast';
-import { getTodaysDate } from '../helpers';
+import { getDoneRecipeObject } from '../helpers';
 import { saveProgress, setRecipeDone } from '../redux/actions';
 import useFetchRecipe from '../services/useFetchRecipe';
 import '../styles/InProgress.css';
@@ -58,19 +58,8 @@ function InProgress({ type }) {
   };
 
   const handleFinishRecipe = () => {
-    console.log(recipe);
-    // console.log(today);
-    const doneObj = { id,
-      type: type === 'Drink' ? 'drink' : 'food',
-      nationality: recipe.strArea,
-      category: recipe.strCategory,
-      alcoholicOrNot: recipe?.strAlcoholic || '',
-      name: recipe[`str${type}`],
-      image: recipe[`str${type}Thumb`],
-      doneDate: getTodaysDate(),
-      tags: recipe.strTags,
-    };
-    dispatch(setRecipeDone(doneObj));
+    const doneRecipeObj = getDoneRecipeObject(id, type, recipe);
+    dispatch(setRecipeDone(doneRecipeObj));
     history.push('/done-recipes');
   };
 

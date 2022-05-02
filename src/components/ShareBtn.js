@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import shareIcon from '../images/shareIcon.svg';
 
-function ShareBtn({ toastVisibilityHandler }) {
+function ShareBtn({ toastVisibilityHandler, isInACard, index, url }) {
   const handleShare = () => {
     const toastShownTime = 800;
-    navigator.clipboard.writeText(window.location.href.replace('/in-progress', ''));
+    console.log('oi');
+    const targetURL = url || window.location.href.replace('/in-progress', '');
+    navigator.clipboard.writeText(targetURL);
     toastVisibilityHandler(true);
     setTimeout(() => {
       toastVisibilityHandler(false);
@@ -16,16 +18,28 @@ function ShareBtn({ toastVisibilityHandler }) {
     <button
       type="button"
       className="transparent"
-      data-testid="share-btn"
       onClick={ handleShare }
     >
-      <img src={ shareIcon } alt="" />
+      <img
+        data-testid={ isInACard ? `${index}-horizontal-share-btn` : 'share-btn' }
+        src={ shareIcon }
+        alt="Share this recipe"
+      />
     </button>
   );
 }
 
+ShareBtn.defaultProps = {
+  isInACard: false,
+  index: 0,
+  url: '',
+};
+
 ShareBtn.propTypes = {
   toastVisibilityHandler: PropTypes.func.isRequired,
+  isInACard: PropTypes.bool,
+  index: PropTypes.number,
+  url: PropTypes.string,
 };
 
 export default ShareBtn;

@@ -13,4 +13,15 @@ export function getTodaysDate() {
   return today;
 }
 
-export const decimal = 10;
+export function getDoneRecipeObject(id, type, recipe) {
+  return { id,
+    type: type === 'Drink' ? 'drink' : 'food',
+    nationality: recipe.strArea,
+    category: recipe.strCategory,
+    alcoholicOrNot: recipe?.strAlcoholic || '',
+    name: recipe[`str${type}`],
+    image: recipe[`str${type}Thumb`],
+    doneDate: getTodaysDate(),
+    tags: recipe.strTags ? recipe.strTags.split(',') : [],
+  };
+}
