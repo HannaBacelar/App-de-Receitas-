@@ -8,26 +8,16 @@ import RecommendationsSection from '../components/RecommendationSection';
 import ShareBtn from '../components/ShareBtn';
 import ShareToast from '../components/ShareToast';
 import StartRecipeBtn from '../components/StartRecipeBtn';
+import useFetchRecipe from '../services/useFetchRecipe';
 import '../styles/Details.css';
 
 function Details({ type }) {
   const { id } = useParams();
-  const [recipe, setRecipe] = useState({});
   const [recommendations, setRecommendations] = useState([]);
   const [isToastVisible, setToastVisibility] = useState(false);
+  const recipe = useFetchRecipe(type, id);
 
   useEffect(() => {
-    const fetchRecipe = async () => {
-      const RECIPE_URL = (type === 'Meal')
-        ? `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
-        : `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
-      const response = await fetch(RECIPE_URL);
-      const result = await response.json();
-      const fetchedRecipe = (type === 'Meal')
-        ? result.meals[0]
-        : result.drinks[0];
-      setRecipe(fetchedRecipe);
-    };
     const fetchRecommendations = async () => {
       const RECOMMENDATION_URL = (type === 'Meal')
         ? 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
@@ -39,18 +29,8 @@ function Details({ type }) {
         : result.meals;
       setRecommendations(fetchedRecommendations);
     };
-    fetchRecipe();
     fetchRecommendations();
   }, [id, type]);
-
-  const handleShare = () => {
-    const toastShownTime = 800;
-    navigator.clipboard.writeText(window.location.href);
-    setToastVisibility(true);
-    setTimeout(() => {
-      setToastVisibility(false);
-    }, toastShownTime);
-  };
 
   const renderIngredients = () => {
     const ingredients = [];
@@ -62,11 +42,7 @@ function Details({ type }) {
             key={ `ingredient-${i}` }
             data-testid={ `${i - 1}-ingredient-name-and-measure` }
           >
-            {recipe[`strIngredient${i}`]}
-            {' '}
-            -
-            {' '}
-            {recipe[`strMeasure${i}`]}
+            {`${recipe[`strIngredient${i}`]} - ${recipe[`strMeasure${i}`]}`}
           </li>,
         );
       }
@@ -91,7 +67,7 @@ function Details({ type }) {
             </span>
           </div>
           <div className="details-btns">
-            <ShareBtn shareHandler={ handleShare } />
+            <ShareBtn toastVisibilityHandler={ setToastVisibility } />
             <FavoriteBtn recipe={ recipe } type={ type } />
           </div>
         </div>

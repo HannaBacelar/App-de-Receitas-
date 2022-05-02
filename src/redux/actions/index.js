@@ -29,3 +29,8 @@ export const removeFavoriteRecipe = (payload) => ({
   type: 'REMOVE_FAVORITE',
   payload,
 });
+
+export const saveProgress = (type, id, ingredientsList) => ({
+  type: 'SAVE_PROGRESS',
+  payload: { type, id, ingredientsList },
+});

@@ -13,6 +13,7 @@ import ExploreFoodsByIngredients from './pages/ExploreFoodsByIngredients';
 import ExploreFoodsByNationality from './pages/ExploreFoodsByNationality';
 import FavoriteRecipes from './pages/FavoriteRecipes';
 import Foods from './pages/Foods';
+import InProgress from './pages/InProgress';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
@@ -29,8 +30,12 @@ function App() {
       <Route exact path="/drinks/:id">
         <Details type="Drink" />
       </Route>
-      <Route exact path="/foods/:id/in-progress" component={ Login } />
-      <Route exact path="/drinks/:id/in-progress" component={ Login } />
+      <Route exact path="/foods/:id/in-progress">
+        <InProgress type="Meal" />
+      </Route>
+      <Route exact path="/drinks/:id/in-progress">
+        <InProgress type="Drink" />
+      </Route>
       <Route exact path="/explore" component={ Explore } />
       <Route exact path="/explore/foods" component={ ExploreFoods } />
       <Route exact path="/explore/drinks" component={ ExploreDrinks } />

@@ -1,0 +1,9 @@
+.ingredients-checkbox {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.striked {
+  text-decoration: line-through;
+}
