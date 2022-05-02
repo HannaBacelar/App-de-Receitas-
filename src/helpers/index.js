@@ -1,16 +1,9 @@
 export function getTodaysDate() {
   const currentDate = new Date();
-  const decimal = 10; // uses this to verify if number requires a 0
-  const day = currentDate.getDate() < decimal
-    ? `0${currentDate.getDate()}`
-    : currentDate.getDate();
-  const month = currentDate.getMonth() < decimal
-    ? `0${currentDate.getMonth()}`
-    : currentDate.getMonth();
-  const year = currentDate.getFullYear();
-  const today = `${day}/${month}/${year}`;
 
-  return today;
+  return currentDate.toLocaleDateString('pt-BR', {
+    day: '2-digit', month: '2-digit', year: 'numeric',
+  });
 }
 
 export function getDoneRecipeObject(id, type, recipe) {
