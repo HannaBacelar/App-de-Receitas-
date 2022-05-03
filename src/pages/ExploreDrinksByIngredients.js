@@ -1,16 +1,68 @@
-import React from 'react';
-import Header from '../components/Header';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
+import { setDrinkSearchIngredient } from '../redux/actions/index';
+import '../css/ExploreFoodsByIngredients.css';
 
-function ExploreDrinksByIngredients() {
+function ExploreDrinksByIngredients(props) {
+  const [ingredients, setIngredients] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const endPoint = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list';
+    const ingredientsArray = [];
+    const fetchIngredients = async () => {
+      const response = await fetch(endPoint);
+      const results = await response.json();
+      const max = 11;
+      for (let index = 0; index <= max; index += 1) {
+        ingredientsArray.push(results.drinks[index]);
+      }
+      setIngredients(ingredientsArray);
+    };
+    fetchIngredients();
+  }, []);
+
+  const handleClick = (value) => {
+    dispatch(setDrinkSearchIngredient(value));
+    const { history } = props;
+    history.push('/drinks');
+  };
+
   return (
     <div>
       <Header
         pageTitle="Explore Ingredients"
       />
+      <div className="cardsDiv">
+        {
+          ingredients && ingredients.map((e, index) => (
+            <button
+              type="button"
+              key={ e.strIngredient1 }
+              onClick={ () => handleClick(e.strIngredient1) }
+              data-testid={ `${index}-ingredient-card` }
+              className="ingredientCard"
+            >
+              <img
+                src={ `https://www.thecocktaildb.com/images/ingredients/${e.strIngredient1}-Small.png` }
+                data-testid={ `${index}-card-img` }
+                alt={ e.strIngredient1 }
+              />
+              <h2 data-testid={ `${index}-card-name` }>{ e.strIngredient1 }</h2>
+            </button>
+          ))
+        }
+      </div>
       <Footer />
     </div>
   );
 }
+
+ExploreDrinksByIngredients.propTypes = {
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default ExploreDrinksByIngredients;

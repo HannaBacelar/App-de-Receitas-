@@ -9,17 +9,25 @@ import { fetchRecipes } from '../redux/actions';
 
 function Foods({ history }) {
   const foods = useSelector((state) => state.foods.recipes.meals);
+  const ingredient = useSelector((state) => state.foods);
+  const redirectStatus = useSelector((state) => state.foods.redirectStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (!foods) return;
     const firstMealId = foods[0].idMeal;
-    if (foods.length === 1) history.push(`/foods/${firstMealId}`);
+    if (foods.length === 1 && redirectStatus) history.push(`/foods/${firstMealId}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [foods, history]);
 
   useEffect(() => {
-    dispatch(fetchRecipes('any', '', 'Foods'));
-  }, [dispatch]);
+    if (ingredient.searchByIngredient === true) {
+      dispatch(fetchRecipes('ingredient', ingredient.selectedIngredient, 'Foods'));
+    } else {
+      dispatch(fetchRecipes('any', '', 'Foods'));
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
