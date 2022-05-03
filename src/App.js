@@ -48,11 +48,6 @@ function App() {
       <Route exact path="/done-recipes" component={ DoneRecipes } />
       <Route exact path="/favorite-recipes" component={ FavoriteRecipes } />
       <Route exact path="*" component={ NotFound } />
-      <Route
-        exact
-        path="/explore/drinks/nationalities"
-        component={ NotFound }
-      />
     </Switch>
   );
 }
