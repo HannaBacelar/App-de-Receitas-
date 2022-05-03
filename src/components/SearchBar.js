@@ -1,29 +1,43 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { fetchRecipes } from '../redux/actions';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+// import { useHistory } from 'react-router-dom';
+import { fetchRecipes, setRedirectStatus } from '../redux/actions';
 
 function SearchBar({ pageTitle }) {
+  const foods = useSelector((state) => state.foods.recipes.meals);
+  // const history = useHistory();
+
   const [searchType, setSearchType] = useState('');
   const [searchValue, setSearchValue] = useState('');
 
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   if (!foods) return;
+  //   const firstMealId = foods[0].idMeal;
+  //   if (foods.length === 1) history.push(`/foods/${firstMealId}`);
+  // }, [foods, history]);
 
   const checkFirstLetter = () => (
     searchValue.length > 1
       ? global.alert('Your search must have only 1 (one) character')
       : dispatch(fetchRecipes(searchType, searchValue, pageTitle)));
 
-  const searchClick = () => (
-    searchType !== 'first-letter-search-radio'
-      ? dispatch(fetchRecipes(searchType, searchValue, pageTitle))
-      : checkFirstLetter());
+  const searchClick = () => {
+    dispatch(setRedirectStatus(true));
+    if (searchType !== 'first-letter-search-radio') {
+      dispatch(fetchRecipes(searchType, searchValue, pageTitle));
+    } else checkFirstLetter();
+    console.log(foods);
+  };
 
   return (
     <div>
       <input
         type="text"
         data-testid="search-input"
+        className="search-input"
         onChange={ ({ target }) => setSearchValue(target.value) }
       />
       <div>

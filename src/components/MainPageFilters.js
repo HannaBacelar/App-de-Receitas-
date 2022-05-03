@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { fetchRecipes } from '../redux/actions';
+import { fetchRecipes, setRedirectStatus } from '../redux/actions';
 
 function MainPageFilters({ pageTitle }) {
   const [categories, setCategories] = useState([]);
@@ -46,9 +46,10 @@ function MainPageFilters({ pageTitle }) {
             type="button"
             name={ cat.strCategory }
             onClick={ ({ target: { name } }) => {
+              dispatch(setRedirectStatus(false));
               setFilter((prevState) => {
                 if (prevState === name) {
-                  return dispatch(fetchItemsRecipes('any', '', pageTitle));
+                  return dispatch(fetchRecipes('any', '', pageTitle));
                 }
                 return name;
               });
