@@ -9,6 +9,7 @@ import MainPageFilters from '../components/MainPageFilters';
 
 function Drinks({ history }) {
   const drinks = useSelector((state) => state.drinks.recipes.drinks);
+  const ingredient = useSelector((state) => state.drinks);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,7 +19,11 @@ function Drinks({ history }) {
   }, [drinks, history]);
 
   useEffect(() => {
-    dispatch(fetchRecipes('any', '', 'Drinks'));
+    if (ingredient.searchByIngredient === true) {
+      dispatch(fetchRecipes('ingredient', ingredient.selectedIngredient, 'Drinks'));
+    } else {
+      dispatch(fetchRecipes('any', '', 'Drinks'));
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

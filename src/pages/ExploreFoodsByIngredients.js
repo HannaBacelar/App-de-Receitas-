@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import { setFoodSearchIngredient } from '../redux/actions/index';
+import '../css/ExploreFoodsByIngredients.css';
 
-function ExploreFoodsByIngredients() {
+function ExploreFoodsByIngredients(props) {
   const [ingredients, setIngredients] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const endPoint = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list';
@@ -20,19 +25,48 @@ function ExploreFoodsByIngredients() {
     fetchIngredients();
   }, []);
 
+  const handleClick = (value) => {
+    dispatch(setFoodSearchIngredient(value));
+    const { history } = props;
+    history.push('/foods');
+  };
+
   return (
     <div>
       <Header
         pageTitle="Explore Ingredients"
       />
-      {
-        ingredients && ingredients.map((ingredient) => (
-          <div key={ ingredient.strIngredient }>{ingredient.strIngredient}</div>
-        ))
-      }
+      <div className="cardsDiv">
+        {
+          ingredients && ingredients.map((e, index) => (
+            <button
+              type="button"
+              className="ingredientCard"
+              key={ e.idIngredient }
+              onClick={ () => handleClick(e.strIngredient) }
+              data-testid={ `${index}-ingredient-card` }
+            >
+              <img
+                src={ `https://www.themealdb.com/images/ingredients/${e.strIngredient}-Small.png` }
+                data-testid={ `${index}-card-img` }
+                alt={ e.strIngredient }
+              />
+              <h2
+                data-testid={ `${index}-card-name` }
+              >
+                { e.strIngredient }
+              </h2>
+            </button>
+          ))
+        }
+      </div>
       <Footer />
     </div>
   );
 }
+
+ExploreFoodsByIngredients.propTypes = {
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 export default ExploreFoodsByIngredients;
