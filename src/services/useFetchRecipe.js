@@ -14,6 +14,7 @@ export default function useFetchRecipe(type, id) {
         ? result.meals[0]
         : result.drinks[0];
       setFetchedRecipe(fetchedRecipe);
+      console.log(fetchedRecipe);
     };
     fetchRecipe();
   }, [id, type]);

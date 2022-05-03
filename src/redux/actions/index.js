@@ -45,6 +45,11 @@ export const saveProgress = (type, id, ingredientsList) => ({
   payload: { type, id, ingredientsList },
 });
 
+export const setRecipeDone = (doneObj) => ({
+  type: 'SET_RECIPE_DONE',
+  payload: doneObj,
+});
+
 export const setFoodSearchIngredient = (value) => ({
   type: 'SET_INGREDIENT_FOODS',
   value,
@@ -53,4 +58,9 @@ export const setFoodSearchIngredient = (value) => ({
 export const setDrinkSearchIngredient = (value) => ({
   type: 'SET_INGREDIENT_DRINKS',
   value,
+});
+
+export const setRedirectStatus = (payload) => ({
+  type: 'SET_REDIRECT_STATUS',
+  payload,
 });

@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import FavoriteBtn from '../components/FavoriteBtn';
+import ProgressCheckbox from '../components/ProgressCheckbox';
 import ShareBtn from '../components/ShareBtn';
 import ShareToast from '../components/ShareToast';
-import { saveProgress } from '../redux/actions';
+import { getDoneRecipeObject } from '../helpers';
+import { saveProgress, setRecipeDone } from '../redux/actions';
 import useFetchRecipe from '../services/useFetchRecipe';
 import '../styles/InProgress.css';
 
@@ -38,30 +40,27 @@ function InProgress({ type }) {
   const renderIngredients = () => {
     const ingredients = [];
     const max = 20;
-    for (let i = 1; i <= max; i += 1) {
-      if (recipe[`strIngredient${i}`]) {
+    for (let index = 1; index <= max; index += 1) {
+      if (recipe[`strIngredient${index}`]) {
         ingredients.push(
-          <label
-            htmlFor={ `ingredient-${i}-checkbox` }
-            key={ `ingredient-${i}` }
-            className={
-              `ingredients-checkbox ${checkedIngredients.includes(i) ? 'striked' : ''}`
-            }
-            data-testid={ `${i - 1}-ingredient-step` }
-          >
-            <input
-              type="checkbox"
-              id={ `ingredient-${i}-checkbox` }
-              onChange={ () => handleCheckboxChange(i) }
-              checked={ checkedIngredients.includes(i) }
-            />
-            {`${recipe[`strIngredient${i}`]} - ${recipe[`strMeasure${i}`]}`}
-          </label>,
+          <ProgressCheckbox
+            index={ index }
+            recipe={ recipe }
+            checkedIngredients={ checkedIngredients }
+            changeHandler={ handleCheckboxChange }
+            key={ `ingredient-${index}` }
+          />,
         );
       }
     }
     ingredientsLength = ingredients.length;
     return ingredients;
+  };
+
+  const handleFinishRecipe = () => {
+    const doneRecipeObj = getDoneRecipeObject(id, type, recipe);
+    dispatch(setRecipeDone(doneRecipeObj));
+    history.push('/done-recipes');
   };
 
   return (
@@ -94,7 +93,7 @@ function InProgress({ type }) {
           type="button"
           data-testid="finish-recipe-btn"
           disabled={ checkedIngredients.length !== ingredientsLength }
-          onClick={ () => history.push('/done-recipes') }
+          onClick={ handleFinishRecipe }
         >
           Finish Recipe
         </button>
