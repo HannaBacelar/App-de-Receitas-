@@ -12,9 +12,19 @@ export function fetchRecipes(type, value, page) {
 
   return async (dispatch) => {
     if (page !== 'Foods') {
+      if (type === 'ingredient') {
+        const searchIngredient = await fetchDrinks('ingredient-search-radio', value);
+        dispatch(setDrinksRecipes(searchIngredient));
+        return;
+      }
       const recipes = await fetchDrinks(type, value);
       if (recipes.drinks === null) displayAlert();
       dispatch(setDrinksRecipes(recipes));
+      return;
+    }
+    if (type === 'ingredient') {
+      const searchIngredient = await fetchFoods('ingredient-search-radio', value);
+      dispatch(setFoodRecipes(searchIngredient));
       return;
     }
     const recipes = await fetchFoods(type, value);
@@ -33,4 +43,14 @@ export const removeFavoriteRecipe = (payload) => ({
 export const saveProgress = (type, id, ingredientsList) => ({
   type: 'SAVE_PROGRESS',
   payload: { type, id, ingredientsList },
+});
+
+export const setFoodSearchIngredient = (value) => ({
+  type: 'SET_INGREDIENT_FOODS',
+  value,
+});
+
+export const setDrinkSearchIngredient = (value) => ({
+  type: 'SET_INGREDIENT_DRINKS',
+  value,
 });
