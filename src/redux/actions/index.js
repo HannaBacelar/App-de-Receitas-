@@ -28,10 +28,10 @@ export const setNationality = (nationality) => ({
   type: 'SET_NATIONALITY', nationality: nationality.meals });
 export const ERROR = (error) => ({ type: 'ERROR', error });
 
-export function fetchAPINationality(list) {
+export function fetchAPINationality() {
   return async (dispatch) => {
     try {
-      const response = await nationalityApi(list);
+      const response = await nationalityApi();
       dispatch(setNationality(response));
     } catch (error) {
       return error;

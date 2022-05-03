@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  nationality: ['American'],
+  nationality: [{ strArea: 'American' }],
   error: '',
 };
 

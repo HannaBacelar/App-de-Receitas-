@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Footer from '../components/Footer';
 import Card from '../components/Card';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import { fetchAPINationality, fetchApiNationalityRecipes } from '../redux/actions';
 
@@ -9,12 +9,13 @@ function ExploreFoodsByNationality() {
   const dispatch = useDispatch();
 
   const listNationality = useSelector((state) => state.nationality.nationality);
+
   const listNationalityRecipes = useSelector(
     (state) => state.recipesNationality.recipesNationality,
   );
 
   useEffect(() => {
-    dispatch(fetchApiNationalityRecipes('American'));
+    dispatch(fetchApiNationalityRecipes('All'));
     dispatch(fetchAPINationality());
   }, []);
 
@@ -32,8 +33,14 @@ function ExploreFoodsByNationality() {
           dispatch(fetchApiNationalityRecipes(value));
         } }
       >
+        <option
+          value="All"
+          data-testid="All-option"
+        >
+          All
+        </option>
         {
-          listNationality && listNationality.map((element, index) => (
+          listNationality.map((element, index) => (
             <option
               key={ element.strArea + index }
               data-testid={ `${element.strArea}-option` }
@@ -47,10 +54,12 @@ function ExploreFoodsByNationality() {
           const max = 11;
           if (index > max) return;
           return (<Card
+            type="foods"
             key={ meal.strMeal }
             img={ meal.strMealThumb }
             index={ index }
             title={ meal.strMeal }
+            id={ meal.idMeal }
           />);
         })
       }
