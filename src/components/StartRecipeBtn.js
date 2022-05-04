@@ -9,9 +9,8 @@ function StartRecipeBtn() {
   const doneRecipes = useSelector((state) => state.savedRecipes.doneRecipes);
   const inProgressRecipes = useSelector((state) => state.savedRecipes.inProgressRecipes);
 
-  const inProgressIds = Object.keys(
-    inProgressRecipes?.meals || inProgressRecipes?.cocktails || {},
-  );
+  const inProgressIds = Object
+    .keys({ ...inProgressRecipes?.meals, ...inProgressRecipes?.cocktails } || {});
 
   const handleStartRecipe = () => {
     history.push(`${pathname}/in-progress`);

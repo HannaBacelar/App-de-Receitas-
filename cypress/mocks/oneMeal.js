@@ -33,7 +33,7 @@ const oneMeal = {
       'strMeasure1': '1 pound',
       'strMeasure2': '1/4 cup',
       'strMeasure3': '3 cloves',
-      'strMeasure4': '1 tin ',
+      'strMeasure4': '1 tin',
       'strMeasure5': '1/2 teaspoon',
       'strMeasure6': '1/2 teaspoon',
       'strMeasure7': '6 leaves',

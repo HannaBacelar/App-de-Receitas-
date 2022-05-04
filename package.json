@@ -75,7 +75,9 @@
   "jest": {
     "coveragePathIgnorePatterns": [
       "src/index.js",
-      "serviceWorker.js"
+      "serviceWorker.js",
+      "src/test-helpers",
+      "src/App.js"
     ],
     "coverageReporters": [
       "json",
