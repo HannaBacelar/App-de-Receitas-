@@ -7,7 +7,7 @@ import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../redux/reducers';
 
-const renderWithRouterAndRedux = (
+const renderWithRouterAndStore = (
   component,
   {
     initialEntries = ['/'],
@@ -29,4 +29,4 @@ const renderWithRouterAndRedux = (
   };
 };
 
-export default renderWithRouterAndRedux;
+export default renderWithRouterAndStore;
