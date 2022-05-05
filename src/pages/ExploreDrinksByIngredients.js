@@ -14,8 +14,7 @@ function ExploreDrinksByIngredients(props) {
     const endPoint = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list';
     const ingredientsArray = [];
     const fetchIngredients = async () => {
-      const response = await fetch(endPoint);
-      const results = await response.json();
+      const results = await fetch(endPoint).then((response) => response.json());
       const max = 11;
       for (let index = 0; index <= max; index += 1) {
         ingredientsArray.push(results.drinks[index]);
