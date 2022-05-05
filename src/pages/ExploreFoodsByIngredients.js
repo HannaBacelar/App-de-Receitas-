@@ -14,8 +14,7 @@ function ExploreFoodsByIngredients(props) {
     const endPoint = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list';
     const ingredientsArray = [];
     const fetchIngredients = async () => {
-      const response = await fetch(endPoint);
-      const results = await response.json();
+      const results = await fetch(endPoint).then((response) => response.json());
       const max = 11;
       for (let index = 0; index <= max; index += 1) {
         ingredientsArray.push(results.meals[index]);
@@ -43,6 +42,7 @@ function ExploreFoodsByIngredients(props) {
               type="button"
               className="ingredientCard"
               key={ e.idIngredient }
+              value={ e.strIngredient }
               onClick={ () => handleClick(e.strIngredient) }
               data-testid={ `${index}-ingredient-card` }
             >
