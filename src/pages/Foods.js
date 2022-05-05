@@ -1,17 +1,18 @@
-import PropTypes from 'prop-types';
 import { React, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Card from '../components/Card';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import MainPageFilters from '../components/MainPageFilters';
 import { fetchRecipes } from '../redux/actions';
 
-function Foods({ history }) {
+function Foods() {
   const foods = useSelector((state) => state.foods.recipes.meals);
   const ingredient = useSelector((state) => state.foods);
   const redirectStatus = useSelector((state) => state.foods.redirectStatus);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     if (!foods) return;
@@ -54,9 +55,5 @@ function Foods({ history }) {
     </div>
   );
 }
-
-Foods.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
-};
 
 export default Foods;

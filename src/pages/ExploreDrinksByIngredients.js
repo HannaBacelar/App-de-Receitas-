@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import { setDrinkSearchIngredient } from '../redux/actions/index';
 import '../css/ExploreFoodsByIngredients.css';
 
-function ExploreDrinksByIngredients(props) {
+function ExploreDrinksByIngredients() {
   const [ingredients, setIngredients] = useState([]);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     const endPoint = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list';
@@ -26,7 +27,6 @@ function ExploreDrinksByIngredients(props) {
 
   const handleClick = (value) => {
     dispatch(setDrinkSearchIngredient(value));
-    const { history } = props;
     history.push('/drinks');
   };
 
@@ -41,6 +41,7 @@ function ExploreDrinksByIngredients(props) {
             <button
               type="button"
               key={ e.strIngredient1 }
+              value={ e.strIngredient1 }
               onClick={ () => handleClick(e.strIngredient1) }
               data-testid={ `${index}-ingredient-card` }
               className="ingredientCard"
@@ -59,9 +60,5 @@ function ExploreDrinksByIngredients(props) {
     </div>
   );
 }
-
-ExploreDrinksByIngredients.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
-};
 
 export default ExploreDrinksByIngredients;
