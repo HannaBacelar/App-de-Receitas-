@@ -32,6 +32,7 @@ function MainPageFilters({ pageTitle }) {
     <div>
       <button
         type="button"
+        name="All"
         data-testid="All-category-filter"
         onClick={ () => dispatch(fetchRecipes('any', '', pageTitle)) }
       >
