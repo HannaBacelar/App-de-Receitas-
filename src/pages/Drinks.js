@@ -1,16 +1,17 @@
 import { React, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import Card from '../components/Card';
 import Footer from '../components/Footer';
 import { fetchRecipes } from '../redux/actions';
 import MainPageFilters from '../components/MainPageFilters';
 
-function Drinks({ history }) {
+function Drinks() {
   const drinks = useSelector((state) => state.drinks.recipes.drinks);
   const ingredient = useSelector((state) => state.drinks);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     if (!drinks) return;
@@ -52,8 +53,5 @@ function Drinks({ history }) {
     </div>
   );
 }
-Drinks.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
-};
 
 export default Drinks;
