@@ -10,6 +10,7 @@ function ExploreFoodsByIngredients() {
   const [ingredients, setIngredients] = useState([]);
   const history = useHistory();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     const endPoint = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list';
