@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import { setFoodSearchIngredient } from '../redux/actions/index';
 import '../css/ExploreFoodsByIngredients.css';
+import { setFoodSearchIngredient } from '../redux/actions/index';
 
-function ExploreFoodsByIngredients(props) {
+function ExploreFoodsByIngredients() {
   const [ingredients, setIngredients] = useState([]);
+  const history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,7 +27,6 @@ function ExploreFoodsByIngredients(props) {
 
   const handleClick = (value) => {
     dispatch(setFoodSearchIngredient(value));
-    const { history } = props;
     history.push('/foods');
   };
 
@@ -64,9 +64,5 @@ function ExploreFoodsByIngredients(props) {
     </div>
   );
 }
-
-ExploreFoodsByIngredients.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
-};
 
 export default ExploreFoodsByIngredients;
