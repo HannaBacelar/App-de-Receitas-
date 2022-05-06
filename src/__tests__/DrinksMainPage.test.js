@@ -1,12 +1,12 @@
-import React from 'react';
 import { screen } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
 import userEvent from '@testing-library/user-event';
-import renderWithRouterAndStore from '../test-helpers/renderWithRouterAndStore';
-import Drinks from '../pages/Drinks';
-import fetchMock from '../../cypress/mocks/fetch';
+import React from 'react';
+import { act } from 'react-dom/test-utils';
 import drinkCategories from '../../cypress/mocks/drinkCategories';
 import drinks from '../../cypress/mocks/drinks';
+import fetchMock from '../../cypress/mocks/fetch';
+import Drinks from '../pages/Drinks';
+import renderWithRouterAndStore from '../test-helpers/renderWithRouterAndStore';
 
 const allFilterUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 const maxCategories = 5;
