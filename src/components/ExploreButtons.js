@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function ExploreButtons(props) {
-  const { page, link, showButton, history } = props;
+  const { page, link, showButton } = props;
   const [random, setRandom] = useState({});
+  const history = useHistory();
 
   const getRandomId = () => (showButton
     ? history.push(`/foods/${random.idMeal}`)
@@ -61,7 +62,6 @@ ExploreButtons.defaultProps = {
 };
 
 ExploreButtons.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
   page: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
   showButton: PropTypes.bool,
