@@ -1,23 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { fetchRecipes, setRedirectStatus } from '../redux/actions';
 
 function SearchBar({ pageTitle }) {
-  const foods = useSelector((state) => state.foods.recipes.meals);
-  // const history = useHistory();
-
   const [searchType, setSearchType] = useState('');
   const [searchValue, setSearchValue] = useState('');
 
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (!foods) return;
-  //   const firstMealId = foods[0].idMeal;
-  //   if (foods.length === 1) history.push(`/foods/${firstMealId}`);
-  // }, [foods, history]);
 
   const checkFirstLetter = () => (
     searchValue.length > 1
