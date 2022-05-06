@@ -2,10 +2,9 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Profile from '../pages/Profile';
-import Login from '../pages/Login';
 import renderWithRouterAndStore from '../test-helpers/renderWithRouterAndStore';
 
-describe('testes da tela Profile', () => {
+describe('teste da tela Profile', () => {
   it('testa se o header é renderizado de forma correta', () => {
     renderWithRouterAndStore(<Profile />);
     const profileHeader = screen.getByRole('heading', { name: /profile/i });

@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import Login from '../pages/Login';
 import renderWithRouterAndStore from '../test-helpers/renderWithRouterAndStore';
 
-describe('testes pagina de login', () => {
+describe('teste pagina de login', () => {
   it('testa se existe o input de email', () => {
     renderWithRouterAndStore(<Login />);
     const emailInput = screen.getByPlaceholderText('E-mail');
