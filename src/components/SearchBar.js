@@ -29,7 +29,6 @@ function SearchBar({ pageTitle }) {
     if (searchType !== 'first-letter-search-radio') {
       dispatch(fetchRecipes(searchType, searchValue, pageTitle));
     } else checkFirstLetter();
-    console.log(foods);
   };
 
   return (
