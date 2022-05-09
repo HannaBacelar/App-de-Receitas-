@@ -1,6 +1,6 @@
+import { gapi } from 'gapi-script';
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { gapi } from 'gapi-script';
 
 function Login() {
   const [login, setLogin] = useState(false);
