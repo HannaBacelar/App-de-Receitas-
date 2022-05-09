@@ -22,14 +22,18 @@ function RecommendationsSection({ recommendations }) {
             data-testid={ `${index}-recomendation-card` }
           >
             <div className="recommendation-img-container">
+              <h4
+                className="recommendation-title"
+                data-testid={ `${index}-recomendation-title` }
+              >
+                {item?.strMeal || item.strDrink}
+              </h4>
+              <span className="recommendation-tag">
+                {item?.strAlcoholic || item.strCategory}
+              </span>
+              <div className="image-overlay" />
               <img alt="" src={ item?.strMealThumb || item.strDrinkThumb } />
             </div>
-            <h4 data-testid={ `${index}-recomendation-title` }>
-              {item?.strMeal || item.strDrink}
-            </h4>
-            <span>
-              {item?.strAlcoholic || item.strCategory}
-            </span>
           </div>
         );
       })}

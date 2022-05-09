@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { FaAngleLeft } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import FavoriteBtn from '../components/FavoriteBtn';
@@ -16,6 +18,8 @@ function Details({ type }) {
   const [recommendations, setRecommendations] = useState([]);
   const [isToastVisible, setToastVisibility] = useState(false);
   const recipe = useFetchRecipe(type, id);
+  const history = useHistory();
+  const doneRecipes = useSelector((state) => state.savedRecipes.doneRecipes);
 
   useEffect(() => {
     const fetchRecommendations = async () => {
@@ -31,6 +35,10 @@ function Details({ type }) {
     };
     fetchRecommendations();
   }, [id, type]);
+
+  const handleGoBack = () => {
+    history.goBack();
+  };
 
   const renderIngredients = () => {
     const ingredients = [];
@@ -52,13 +60,25 @@ function Details({ type }) {
 
   return (
     <div>
+      <div className="top-overlay" />
+      <FaAngleLeft
+        className="go-back"
+        onClick={ handleGoBack }
+        color="white"
+        size="2.4rem"
+      />
       <img
         className="details-image"
         data-testid="recipe-photo"
         alt=""
         src={ recipe[`str${type}Thumb`] }
       />
-      <div className="details-container">
+      <div
+        className={
+          `${!doneRecipes.some((item) => item.id === id)
+            ? 'add-padding' : ''} details-container`
+        }
+      >
         <div className="details-header">
           <div>
             <h2 data-testid="recipe-title">{recipe[`str${type}`]}</h2>
@@ -75,7 +95,12 @@ function Details({ type }) {
         <h3>Ingredients</h3>
         <ul>{renderIngredients()}</ul>
         <h3>Instructions</h3>
-        <p data-testid="instructions">{recipe.strInstructions}</p>
+        <p
+          className="details-instructions"
+          data-testid="instructions"
+        >
+          {recipe.strInstructions}
+        </p>
         {recipe?.strYoutube && (
           <>
             <h3>Video</h3>
