@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Card({ index, img, title, type, id }) {
   return (
-    <Link to={ `/${type}/${id}` }>
+    <Link className="recipe-card" to={ `/${type}/${id}` }>
       <div data-testid={ `${index}-recipe-card` }>
         <img
           alt={ title }
@@ -12,7 +12,7 @@ function Card({ index, img, title, type, id }) {
           width="100%"
           src={ img }
         />
-        <h2 data-testid={ `${index}-card-name` }>{title}</h2>
+        <span data-testid={ `${index}-card-name` }>{title}</span>
       </div>
     </Link>
   );

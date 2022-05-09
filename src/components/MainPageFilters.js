@@ -29,7 +29,7 @@ function MainPageFilters({ pageTitle }) {
   }, [filter, pageTitle, dispatch]);
 
   return (
-    <div>
+    <div className="main-page-buttons">
       <button
         type="button"
         name="All"

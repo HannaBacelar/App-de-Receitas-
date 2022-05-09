@@ -4,6 +4,12 @@
   padding: 0;
 }
 
+:root {
+  --main-color: rgb(255,255,255),
+  --orange: rgb(245,158,47),
+  --text-color: rgb(0,0,0),
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

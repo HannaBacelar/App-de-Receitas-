@@ -1,0 +1,141 @@
+.main-page-buttons {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: space-between;
+    
+    width: 360px;
+    margin-left: 11px;
+    margin-right: 11px;
+}
+
+.main-page-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 104px;
+    height: 30px;
+    left: 240px;
+    top: 226px;
+
+    margin: 5px 4px 5px 4px;
+    
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    text-align: center;
+    letter-spacing: -0.333333px;
+
+    color: #999999;
+}
+
+.main-page-buttons button:hover {
+    color: #F59E2F;
+    border: 1px solid #F59E2F;
+}
+
+.search-bar {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+    width: 360px;
+    height: 110px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.09);
+    border-radius: 0px 0px 16px 16px;
+}
+
+.search-bar button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 49px;
+    height: 36px;
+    left: 295px;
+    top: 110px;
+
+    color: #F59E2F;
+    background: #FFFFFF;
+    border: 1px solid #F59E2F;
+    border-radius: 8px;
+}
+
+.search-input {
+    width: 263px;
+    height: 36px;
+    left: 16px;
+    top: 110px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.search-input::placeholder {
+    color: #F59E2F;
+}
+
+.radio-buttons {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.radio-buttons label{
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.recipes-cards-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    width: 360px;
+}
+
+.recipe-card div {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 150px;
+    height: 178px;
+    left: 20px;
+    top: 322px;
+
+    text-align: center;
+    color: black;
+    font-size: 18px;
+
+    margin: 28px 10px 28px 10px;
+}
+
+.recipe-card img {
+    width: 150px;
+    height: 150px;
+    left: 20px;
+    top: 322px;
+
+    border-radius: 16px;
+}
+
+.recipe-card div:hover {
+    color:#F59E2F;
+}
+
+.recipe-card:hover {
+    text-decoration: none;
+}
