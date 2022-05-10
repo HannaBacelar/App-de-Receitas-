@@ -24,8 +24,8 @@ function SearchBar({ pageTitle }) {
   return (
     <div className="search-bar">
       <input
+        placeholder="    Search..."
         type="text"
-        placeholder="   Search..."
         data-testid="search-input"
         className="search-input"
         onChange={ ({ target }) => setSearchValue(target.value) }

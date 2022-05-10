@@ -1,12 +1,12 @@
 import { React, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import '../styles/FoodsDrinks.css';
 import Card from '../components/Card';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import MainPageFilters from '../components/MainPageFilters';
 import { fetchRecipes } from '../redux/actions';
+import '../styles/FoodsDrinks.css';
 
 function Foods() {
   const foods = useSelector((state) => state.foods.recipes.meals);
