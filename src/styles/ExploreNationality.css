@@ -1,0 +1,49 @@
+.dropdonw {
+  background-color: white;
+  border: 1px solid #f59e2f;
+  color: #f59e2f;
+  font-size: 20px;
+  text-align: center;
+  width: 150px;
+}
+
+.recipe-card div {
+  align-items: center;
+  color: black;
+  display: flex;
+  flex-flow: column;
+  font-size: 18px;
+  height: 178px;
+  justify-content: space-between;
+  left: 20px;
+  margin: 28px 10px;
+  text-align: center;
+  top: 322px;
+  width: 150px;
+}
+
+.recipe-card img {
+  border-radius: 16px;
+  height: 150px;
+  left: 20px;
+  top: 322px;
+  width: 150px;
+}
+
+.recipe-card div:hover {
+  color: #f59e2f;
+}
+
+.recipe-card:hover {
+  text-decoration: none;
+}
+
+.recipes-cards-container {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 360px;
+
+}
+

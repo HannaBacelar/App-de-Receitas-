@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Card from '../components/Card';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import '../styles/ExploreNationality.css';
 import { fetchAPINationality, fetchApiNationalityRecipes } from '../redux/actions';
 
 function ExploreFoodsByNationality() {
@@ -27,6 +28,7 @@ function ExploreFoodsByNationality() {
       />
 
       <select
+        className="dropdonw"
         data-testid="explore-by-nationality-dropdown"
         name="dropdonw"
         onChange={ ({ target: { value } }) => {
@@ -49,21 +51,22 @@ function ExploreFoodsByNationality() {
             </option>))
         }
       </select>
-      {
-        listNationalityRecipes && listNationalityRecipes.map((meal, index) => {
-          const max = 11;
-          if (index > max) return;
-          return (<Card
-            type="foods"
-            key={ meal.strMeal }
-            img={ meal.strMealThumb }
-            index={ index }
-            title={ meal.strMeal }
-            id={ meal.idMeal }
-          />);
-        })
-      }
-
+      <div className="recipes-cards-container">
+        {
+          listNationalityRecipes && listNationalityRecipes.map((meal, index) => {
+            const max = 11;
+            if (index > max) return;
+            return (<Card
+              type="foods"
+              key={ meal.strMeal }
+              img={ meal.strMealThumb }
+              index={ index }
+              title={ meal.strMeal }
+              id={ meal.idMeal }
+            />);
+          })
+        }
+      </div>
       <Footer />
     </div>
   );
