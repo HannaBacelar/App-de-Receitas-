@@ -63,7 +63,7 @@ FavoriteBtn.defaultProps = {
 };
 
 FavoriteBtn.propTypes = {
-  recipe: PropTypes.objectOf(PropTypes.any).isRequired,
+  recipe: PropTypes.objectOf(PropTypes).isRequired,
   type: PropTypes.string.isRequired,
   changeId: PropTypes.bool,
   index: PropTypes.number,

@@ -1,11 +1,12 @@
 import { React, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import Header from '../components/Header';
 import Card from '../components/Card';
 import Footer from '../components/Footer';
-import { fetchRecipes } from '../redux/actions';
+import Header from '../components/Header';
 import MainPageFilters from '../components/MainPageFilters';
+import { fetchRecipes } from '../redux/actions';
+import '../styles/FoodsDrinks.css';
 
 function Drinks() {
   const drinks = useSelector((state) => state.drinks.recipes.drinks);
@@ -35,20 +36,22 @@ function Drinks() {
         pageTitle="Drinks"
       />
       <MainPageFilters pageTitle="Drinks" />
-      {
-        drinks && drinks.map((drink, index) => {
-          const max = 11;
-          if (index > max) return;
-          return (<Card
-            key={ drink.strDrink }
-            img={ drink.strDrinkThumb }
-            index={ index }
-            title={ drink.strDrink }
-            id={ drink.idDrink }
-            type="drinks"
-          />);
-        })
-      }
+      <div className="recipes-cards-container">
+        {
+          drinks && drinks.map((drink, index) => {
+            const max = 11;
+            if (index > max) return;
+            return (<Card
+              key={ drink.strDrink }
+              img={ drink.strDrinkThumb }
+              index={ index }
+              title={ drink.strDrink }
+              id={ drink.idDrink }
+              type="drinks"
+            />);
+          })
+        }
+      </div>
       <Footer />
     </div>
   );

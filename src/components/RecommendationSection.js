@@ -41,7 +41,7 @@ function RecommendationsSection({ recommendations }) {
 }
 
 RecommendationsSection.propTypes = {
-  recommendations: PropTypes.arrayOf(PropTypes.any).isRequired,
+  recommendations: PropTypes.arrayOf(PropTypes).isRequired,
 };
 
 export default RecommendationsSection;

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchRecipes, setRedirectStatus } from '../redux/actions';
 
@@ -29,12 +29,17 @@ function MainPageFilters({ pageTitle }) {
   }, [filter, pageTitle, dispatch]);
 
   return (
-    <div>
+    <div className="main-page-buttons">
       <button
         type="button"
         name="All"
         data-testid="All-category-filter"
-        onClick={ () => dispatch(fetchRecipes('any', '', pageTitle)) }
+        className="filter-btn active"
+        onClick={ ({ target }) => {
+          document.querySelector('.active')?.classList.remove('active');
+          target.classList.add('active');
+          dispatch(fetchRecipes('any', '', pageTitle));
+        } }
       >
         All
       </button>
@@ -46,21 +51,26 @@ function MainPageFilters({ pageTitle }) {
             key={ i }
             type="button"
             name={ cat.strCategory }
-            onClick={ ({ target: { name } }) => {
+            className="filter-btn"
+            onClick={ ({ target }) => {
+              document.querySelector('.active')?.classList.remove('active');
+              target.classList.add('active');
               dispatch(setRedirectStatus(false));
               setFilter((prevState) => {
-                if (prevState === name) {
+                if (prevState === target.name) {
                   return dispatch(fetchRecipes('any', '', pageTitle));
                 }
-                return name;
+                return target.name;
               });
             } }
             data-testid={ `${cat.strCategory}-category-filter` }
           >
             { cat.strCategory }
-          </button>);
+          </button>
+        );
       }) }
-    </div>);
+    </div>
+  );
 }
 
 MainPageFilters.propTypes = {
