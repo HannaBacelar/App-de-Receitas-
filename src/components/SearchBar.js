@@ -22,14 +22,22 @@ function SearchBar({ pageTitle }) {
   };
 
   return (
-    <div>
+    <div className="search-bar">
       <input
+        placeholder="    Search..."
         type="text"
         data-testid="search-input"
         className="search-input"
         onChange={ ({ target }) => setSearchValue(target.value) }
       />
-      <div>
+      <button
+        type="button"
+        data-testid="exec-search-btn"
+        onClick={ searchClick }
+      >
+        Go!
+      </button>
+      <div className="radio-buttons">
         <label htmlFor="ingredient-search-radio">
           <input
             type="radio"
@@ -38,6 +46,7 @@ function SearchBar({ pageTitle }) {
             data-testid="ingredient-search-radio"
             onClick={ ({ target }) => setSearchType(target.id) }
           />
+          {' '}
           Ingredient
         </label>
 
@@ -49,6 +58,7 @@ function SearchBar({ pageTitle }) {
             data-testid="name-search-radio"
             onClick={ ({ target }) => setSearchType(target.id) }
           />
+          {' '}
           Name
         </label>
 
@@ -60,16 +70,9 @@ function SearchBar({ pageTitle }) {
             data-testid="first-letter-search-radio"
             onClick={ ({ target }) => setSearchType(target.id) }
           />
+          {' '}
           First Letter
         </label>
-
-        <button
-          type="button"
-          data-testid="exec-search-btn"
-          onClick={ searchClick }
-        >
-          Search
-        </button>
       </div>
     </div>
   );

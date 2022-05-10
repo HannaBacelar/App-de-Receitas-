@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import MainPageFilters from '../components/MainPageFilters';
 import { fetchRecipes } from '../redux/actions';
+import '../styles/FoodsDrinks.css';
 
 function Foods() {
   const foods = useSelector((state) => state.foods.recipes.meals);
@@ -37,20 +38,22 @@ function Foods() {
         pageTitle="Foods"
       />
       <MainPageFilters pageTitle="Foods" />
-      {
-        foods && foods.map((meal, index) => {
-          const max = 11;
-          if (index > max) return null;
-          return (<Card
-            key={ meal.strMeal }
-            img={ meal.strMealThumb }
-            index={ index }
-            title={ meal.strMeal }
-            id={ meal.idMeal }
-            type="foods"
-          />);
-        })
-      }
+      <div className="recipes-cards-container">
+        {
+          foods && foods.map((meal, index) => {
+            const max = 11;
+            if (index > max) return null;
+            return (<Card
+              key={ meal.strMeal }
+              img={ meal.strMealThumb }
+              index={ index }
+              title={ meal.strMeal }
+              id={ meal.idMeal }
+              type="foods"
+            />);
+          })
+        }
+      </div>
       <Footer />
     </div>
   );

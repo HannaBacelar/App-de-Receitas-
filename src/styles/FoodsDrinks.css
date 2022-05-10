@@ -1,0 +1,123 @@
+.main-page-buttons {
+  align-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: 11px;
+  margin-right: 11px;
+  width: 360px;
+}
+
+.main-page-buttons button {
+  align-items: center;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  color: #999;
+  display: flex;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  height: 30px;
+  justify-content: center;
+  left: 240px;
+  line-height: 17px;
+  margin: 5px 4px;
+  text-align: center;
+  top: 226px;
+  width: 104px;
+}
+
+.search-bar button {
+  align-items: center;
+  background: white;
+  border: 1px solid #f59e2f;
+  border-radius: 8px;
+  color: #f59e2f;
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  left: 295px;
+  top: 110px;
+  width: 49px;
+}
+
+.main-page-buttons button:hover {
+  border: 1px solid #f59e2f;
+  color: #f59e2f;
+}
+
+.search-bar {
+  align-items: center;
+  background: white;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.09);
+  display: flex;
+  flex-flow: row wrap;
+  height: 110px;
+  width: 360px;
+}
+
+.search-input {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  height: 36px;
+  left: 16px;
+  top: 110px;
+  width: 263px;
+}
+
+.search-input::placeholder {
+  color: #f59e2f;
+}
+
+.radio-buttons {
+  align-items: center;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.radio-buttons label {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.recipes-cards-container {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 360px;
+}
+
+.recipe-card div {
+  align-items: center;
+  color: black;
+  display: flex;
+  flex-flow: column;
+  font-size: 20px;
+  height: 178px;
+  justify-content: space-between;
+  left: 20px;
+  margin: 28px 10px;
+  text-align: center;
+  top: 322px;
+  width: 150px;
+}
+
+.recipe-card img {
+  border-radius: 16px;
+  height: 150px;
+  left: 20px;
+  top: 322px;
+  width: 150px;
+}
+
+.recipe-card div:hover {
+  color: #f59e2f;
+}
+
+.recipe-card:hover {
+  text-decoration: none;
+}

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchRecipes, setRedirectStatus } from '../redux/actions';
 
@@ -29,7 +29,7 @@ function MainPageFilters({ pageTitle }) {
   }, [filter, pageTitle, dispatch]);
 
   return (
-    <div>
+    <div className="main-page-buttons">
       <button
         type="button"
         name="All"
