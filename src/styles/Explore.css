@@ -1,0 +1,54 @@
+.Explore {
+  display: flex;
+  flex-direction: column;
+}
+
+.Explore main {
+  display: flex;
+  flex-direction: column;
+}
+
+.explore-link {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.explore-link:hover {
+  text-decoration: none;
+}
+
+.explore-link button {
+  align-items: center;
+  background-color: white;
+  border: #f59e2f solid 1px;
+  border-radius: 10px;
+  color: #f59e2f;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  position: relative;
+  width: 90%;
+}
+
+.explore-link button:hover {
+  background-color: #f59e2f;
+  color: white;
+  text-decoration: none;
+}
+
+.explore-link button:active {
+  background-color: #f59e2f;
+  color: white;
+  opacity: 80%;
+  text-decoration: none;
+}
+
+.explore-link-icon {
+  margin-left: 0;
+  margin-right: 80%;
+  position: absolute;
+}
