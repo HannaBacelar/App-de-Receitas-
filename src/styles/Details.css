@@ -107,7 +107,7 @@
   font-weight: 600;
   left: 12px;
   position: absolute;
-  z-index: 99;
+  z-index: 2;
 }
 
 .recommendation-tag {
@@ -115,7 +115,7 @@
   color: white;
   left: 12px;
   position: absolute;
-  z-index: 99;
+  z-index: 2;
 }
 
 .slider {
