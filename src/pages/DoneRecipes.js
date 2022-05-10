@@ -13,13 +13,16 @@ function DoneRecipes() {
 
   const [isToastVisible, setToastVisibility] = useState(false);
 
-  const handleFilter = ({ target: { name } }) => {
-    if (name === 'all') {
+  const handleFilter = ({ target }) => {
+    document.querySelector('.active')?.classList.remove('active');
+    target.classList.add('active');
+
+    if (target.name === 'all') {
       setFilteredRecipes([...doneRecipes]);
       return;
     }
     setFilteredRecipes(doneRecipes
-      .filter((recipe) => recipe.type === name));
+      .filter((recipe) => recipe.type === target.name));
   };
 
   return (
@@ -30,15 +33,16 @@ function DoneRecipes() {
 
       <FavAndDoneFilters handleFilter={ handleFilter } />
 
-      <ShareToast isToastVisible={ isToastVisible } />
-
-      <FavDoneCard
-        protocol={ protocol }
-        tagVisibility
-        host={ host }
-        filteredRecipes={ filteredRecipes }
-        visibility={ setToastVisibility }
-      />
+      <div className="done-cards-container">
+        <ShareToast isToastVisible={ isToastVisible } />
+        <FavDoneCard
+          protocol={ protocol }
+          tagVisibility
+          host={ host }
+          filteredRecipes={ filteredRecipes }
+          visibility={ setToastVisibility }
+        />
+      </div>
 
     </div>
   );
