@@ -66,9 +66,11 @@ function MainPageFilters({ pageTitle }) {
             data-testid={ `${cat.strCategory}-category-filter` }
           >
             { cat.strCategory }
-          </button>);
+          </button>
+        );
       }) }
-    </div>);
+    </div>
+  );
 }
 
 MainPageFilters.propTypes = {
