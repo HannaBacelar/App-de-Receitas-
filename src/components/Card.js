@@ -12,7 +12,7 @@ function Card({ index, img, title, type, id }) {
           width="100%"
           src={ img }
         />
-        <span data-testid={ `${index}-card-name` }>{title}</span>
+        <h2 data-testid={ `${index}-card-name` }>{title}</h2>
       </div>
     </Link>
   );

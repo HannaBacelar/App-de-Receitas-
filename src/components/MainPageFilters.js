@@ -34,7 +34,12 @@ function MainPageFilters({ pageTitle }) {
         type="button"
         name="All"
         data-testid="All-category-filter"
-        onClick={ () => dispatch(fetchRecipes('any', '', pageTitle)) }
+        className="filter-btn active"
+        onClick={ ({ target }) => {
+          document.querySelector('.active')?.classList.remove('active');
+          target.classList.add('active');
+          dispatch(fetchRecipes('any', '', pageTitle));
+        } }
       >
         All
       </button>
@@ -46,13 +51,16 @@ function MainPageFilters({ pageTitle }) {
             key={ i }
             type="button"
             name={ cat.strCategory }
-            onClick={ ({ target: { name } }) => {
+            className="filter-btn"
+            onClick={ ({ target }) => {
+              document.querySelector('.active')?.classList.remove('active');
+              target.classList.add('active');
               dispatch(setRedirectStatus(false));
               setFilter((prevState) => {
-                if (prevState === name) {
+                if (prevState === target.name) {
                   return dispatch(fetchRecipes('any', '', pageTitle));
                 }
-                return name;
+                return target.name;
               });
             } }
             data-testid={ `${cat.strCategory}-category-filter` }

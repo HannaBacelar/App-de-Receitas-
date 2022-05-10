@@ -14,7 +14,8 @@ function SearchBar({ pageTitle }) {
       ? global.alert('Your search must have only 1 (one) character')
       : dispatch(fetchRecipes(searchType, searchValue, pageTitle)));
 
-  const searchClick = () => {
+  const searchClick = (event) => {
+    event.preventDefault();
     dispatch(setRedirectStatus(true));
     if (searchType !== 'first-letter-search-radio') {
       dispatch(fetchRecipes(searchType, searchValue, pageTitle));
@@ -23,20 +24,22 @@ function SearchBar({ pageTitle }) {
 
   return (
     <div className="search-bar">
-      <input
-        placeholder="    Search..."
-        type="text"
-        data-testid="search-input"
-        className="search-input"
-        onChange={ ({ target }) => setSearchValue(target.value) }
-      />
-      <button
-        type="button"
-        data-testid="exec-search-btn"
-        onClick={ searchClick }
-      >
-        Go!
-      </button>
+      <form>
+        <input
+          placeholder="Search..."
+          type="text"
+          data-testid="search-input"
+          className="search-input"
+          onChange={ ({ target }) => setSearchValue(target.value) }
+        />
+        <button
+          type="submit"
+          data-testid="exec-search-btn"
+          onClick={ searchClick }
+        >
+          Go!
+        </button>
+      </form>
       <div className="radio-buttons">
         <label htmlFor="ingredient-search-radio">
           <input
@@ -48,7 +51,7 @@ function SearchBar({ pageTitle }) {
           />
           {' '}
           Ingredient
-          <span className="checkmark" />
+          {/* <span className="checkmark" /> */}
         </label>
 
         <label htmlFor="name-search-radio">
