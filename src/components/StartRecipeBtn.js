@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
+import '../styles/StartRecipeBtn.css';
 
 function StartRecipeBtn() {
   const { id } = useParams();

@@ -55,39 +55,7 @@
   line-height: 1.8rem;
 }
 
-.recommendations-container {
-  display: flex;
-  overflow-x: overlay;
-}
-
-.recommendation-card {
-  height: 160px;
-  width: 50%;
-}
-
-.recommendation-img-container {
-  border-radius: 16px;
-  display: flex;
-  max-height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.recommendation-img-container img {
-  object-fit: cover;
-  overflow: hidden;
-}
-
-.image-overlay {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, transparent 70%);
-  height: 100%;
-  position: absolute;
-  width: 100%;
-}
-
 .top-overlay {
-
-  /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 100%, transparent 0%); */
   background: linear-gradient(0deg, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.6) 100%);
   height: 128px;
   position: absolute;
@@ -99,96 +67,6 @@
   left: 8px;
   position: absolute;
   top: 16px;
-}
-
-.recommendation-title {
-  bottom: 24px;
-  color: white;
-  font-weight: 600;
-  left: 12px;
-  position: absolute;
-  z-index: 2;
-}
-
-.recommendation-tag {
-  bottom: 12px;
-  color: white;
-  left: 12px;
-  position: absolute;
-  z-index: 2;
-}
-
-.slider {
-  margin-bottom: 20px;
-}
-
-.start-recipe-container {
-
-  /* background: white; */
-  background: linear-gradient(0deg, white 40%, transparent 100%);
-  bottom: 0;
-  left: 0;
-  margin-bottom: -1px;
-  padding: 40px 20px 21px;
-  position: fixed;
-  width: calc(100%);
-}
-
-.start-recipe-btn {
-  background-color: #f59e2f;
-  border: none;
-  border-radius: 8px;
-  bottom: 20px;
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 12px;
-
-  /* position: fixed; */
-  width: 100%;
-}
-
-.share-toast {
-  align-items: center;
-  background-color: rgba(128, 128, 128, 0.9);
-  border-radius: 8px;
-  bottom: 64px;
-  color: white;
-  display: flex;
-  justify-content: center;
-
-  /* margin: 0 16px; */
-  opacity: 0;
-  padding: 8px 16px;
-  position: fixed;
-  transition: visibility 0s linear 200ms , opacity 200ms;
-  visibility: hidden;
-  width: calc(100% - 32px);
-  z-index: 3;
-}
-
-.share-toast.visible {
-  opacity: 1;
-  transition: visibility 0s linear 0ms , opacity 200ms;
-  visibility: visible;
-}
-
-.share-toast p {
-  margin: 0;
-}
-
-/* the slides */
-.slick-slide {
-  padding: 0 10px;
-}
-
-/* .slick-current {
-  padding-right: 0;
-} */
-
-/* the parent */
-.slick-list {
-  margin: 0 -10px;
 }
 
 .favorite-checked {

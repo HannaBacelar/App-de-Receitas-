@@ -36,10 +36,6 @@ function Details({ type }) {
     fetchRecommendations();
   }, [id, type]);
 
-  const handleGoBack = () => {
-    history.goBack();
-  };
-
   const renderIngredients = () => {
     const ingredients = [];
     const max = 20;
@@ -63,7 +59,7 @@ function Details({ type }) {
       <div className="top-overlay" />
       <FaAngleLeft
         className="go-back"
-        onClick={ handleGoBack }
+        onClick={ () => history.goBack() }
         color="white"
         size="2.4rem"
       />

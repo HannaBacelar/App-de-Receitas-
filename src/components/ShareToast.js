@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import '../styles/ShareToast.css';
 
 function ShareToast({ isToastVisible }) {
   return (
