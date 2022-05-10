@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.cardsDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 15%;
+}
+
+.cardsDiv button {
+  background-color: white;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+}
+
+.ingredientCard {
+  align-items: center;
+  background-color: white;
+  border: none;
+  border-radius: 10%;
+  box-shadow: 6px 6px 12px #d9d9d9 , -6px -6px 12px white;
+  display: flex;
+  height: 40vw;
+  justify-content: center;
+  margin-bottom: 10%;
+  width: 40vw;
+}
+
+.cardsDiv h2 {
+  align-self: center;
+  font-size: 1rem;
+}

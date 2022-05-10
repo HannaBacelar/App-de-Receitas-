@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import '../css/ExploreFoodsByIngredients.css';
+import '../styles/ExploreByIngredients.css';
 import { setFoodSearchIngredient } from '../redux/actions/index';
 
 function ExploreFoodsByIngredients() {
@@ -40,17 +40,18 @@ function ExploreFoodsByIngredients() {
           ingredients && ingredients.map((e, index) => (
             <button
               type="button"
-              className="ingredientCard"
               key={ e.idIngredient }
               value={ e.strIngredient }
               onClick={ () => handleClick(e.strIngredient) }
               data-testid={ `${index}-ingredient-card` }
             >
-              <img
-                src={ `https://www.themealdb.com/images/ingredients/${e.strIngredient}-Small.png` }
-                data-testid={ `${index}-card-img` }
-                alt={ e.strIngredient }
-              />
+              <div className="ingredientCard">
+                <img
+                  src={ `https://www.themealdb.com/images/ingredients/${e.strIngredient}-Small.png` }
+                  data-testid={ `${index}-card-img` }
+                  alt={ e.strIngredient }
+                />
+              </div>
               <h2
                 data-testid={ `${index}-card-name` }
               >

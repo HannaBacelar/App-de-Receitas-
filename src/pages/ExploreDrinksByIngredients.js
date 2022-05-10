@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import { setDrinkSearchIngredient } from '../redux/actions/index';
-import '../css/ExploreFoodsByIngredients.css';
+import '../styles/ExploreByIngredients.css';
 
 function ExploreDrinksByIngredients() {
   const [ingredients, setIngredients] = useState([]);
