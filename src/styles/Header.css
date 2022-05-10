@@ -2,38 +2,39 @@
 
 /* stylelint-disable value-no-vendor-prefix */
 .header-top-row {
-  align-items: flex-end;
+  align-items: center;
   background: white;
   display: flex;
-  height: 50px;
   justify-content: space-between;
-  margin: 0 16px;
+  padding: 16px;
 }
 
 .header-top-row h1 {
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  font-size: 32px;
-  -webkit-line-clamp: 1;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .icons {
   align-items: center;
   display: flex;
-  height: 50px;
-  justify-content: space-between;
+  gap: 24px;
 }
 
 .profile-icon {
   color: black;
-  font-size: 28px;
-  margin-left: 10px;
+  font-size: 20px;
+
+  /* margin-left: 10px; */
 }
 
 .search-button {
   background-color: transparent;
   border: none;
-  font-size: 28px;
-  margin-right: 10px;
+  font-size: 20px;
+
+  /* margin-right: 10px; */
 }
