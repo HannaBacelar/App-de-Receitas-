@@ -1,5 +1,42 @@
+/* stylelint-disable order/properties-alphabetical-order */
+
+/* stylelint-disable property-no-vendor-prefix */
+
+/* stylelint-disable value-no-vendor-prefix */
 .header-top-row {
-  align-items: center;
+  background: white;
+  align-items: flex-end;
   display: flex;
   justify-content: space-between;
+  height: 50px;
+  margin: 0 16px;
+}
+
+.header-top-row h1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  font-size: 32px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.profile-icon {
+  color: black;
+  font-size: 28px;
+  margin-left: 10px;
+}
+
+.search-button {
+  font-size: 28px;
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+
 }

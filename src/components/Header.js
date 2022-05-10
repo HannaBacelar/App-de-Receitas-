@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { FaSearch, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import profileIcon from '../images/profileIcon.svg';
-import searchIcon from '../images/searchIcon.svg';
 import '../styles/Header.css';
 import SearchBar from './SearchBar';
 
@@ -13,29 +12,24 @@ function Header(props) {
   return (
     <header>
       <div className="header-top-row">
-        <Link
-          to="/profile"
-        >
-          <img
-            data-testid="profile-top-btn"
-            src={ profileIcon }
-            alt=""
-          />
-        </Link>
         <h1 data-testid="page-title">{ pageTitle }</h1>
-        {displaySearch && (
-          <button
-            type="button"
-            className="transparent"
-            onClick={ () => setDisplaySearchBar(!displaySearchBar) }
-          >
-            <img
-              data-testid="search-top-btn"
-              src={ searchIcon }
-              alt=""
+        <div className="icons">
+          {displaySearch && (
+            <FaSearch
+              type="button"
+              className="search-button"
+              onClick={ () => setDisplaySearchBar(!displaySearchBar) }
             />
-          </button>
-        )}
+          )}
+          <Link
+            to="/profile"
+          >
+            <FaUser
+              to="/profile"
+              className="profile-icon"
+            />
+          </Link>
+        </div>
       </div>
       { displaySearchBar && <SearchBar pageTitle={ pageTitle } /> }
     </header>
