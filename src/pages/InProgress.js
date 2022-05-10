@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { FaAngleLeft } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import FavoriteBtn from '../components/FavoriteBtn';
@@ -64,7 +65,14 @@ function InProgress({ type }) {
   };
 
   return (
-    <div>
+    <div className="in-progress-container">
+      <div className="top-overlay" />
+      <FaAngleLeft
+        className="go-back"
+        onClick={ () => history.goBack() }
+        color="white"
+        size="2.4rem"
+      />
       <img
         className="details-image"
         data-testid="recipe-photo"
@@ -88,9 +96,15 @@ function InProgress({ type }) {
         <h3>Ingredients</h3>
         <ul>{renderIngredients()}</ul>
         <h3>Instructions</h3>
-        <p data-testid="instructions">{recipe.strInstructions}</p>
+        <p
+          data-testid="instructions"
+          className="details-instructions"
+        >
+          {recipe.strInstructions}
+        </p>
         <button
           type="button"
+          className="start-recipe-btn"
           data-testid="finish-recipe-btn"
           disabled={ checkedIngredients.length !== ingredientsLength }
           onClick={ handleFinishRecipe }

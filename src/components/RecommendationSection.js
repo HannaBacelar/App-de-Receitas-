@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Slider from 'react-slick';
+import '../styles/RecommendationSection.css';
 
 function RecommendationsSection({ recommendations }) {
   const sliderSettings = {
@@ -21,15 +22,17 @@ function RecommendationsSection({ recommendations }) {
             className="recommendation-card"
             data-testid={ `${index}-recomendation-card` }
           >
-            <div className="recommendation-img-container">
-              <img alt="" src={ item?.strMealThumb || item.strDrinkThumb } />
-            </div>
-            <h4 data-testid={ `${index}-recomendation-title` }>
+            <h4
+              className="recommendation-title"
+              data-testid={ `${index}-recomendation-title` }
+            >
               {item?.strMeal || item.strDrink}
             </h4>
-            <span>
+            <span className="recommendation-tag">
               {item?.strAlcoholic || item.strCategory}
             </span>
+            <div className="image-overlay" />
+            <img alt="" src={ item?.strMealThumb || item.strDrinkThumb } />
           </div>
         );
       })}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
+import '../styles/StartRecipeBtn.css';
 
 function StartRecipeBtn() {
   const { id } = useParams();
@@ -19,18 +20,20 @@ function StartRecipeBtn() {
   return (
     <div>
       {!doneRecipes.some((item) => item.id === id) && (
-        <button
-          type="button"
-          className="start-recipe-btn"
-          data-testid="start-recipe-btn"
-          onClick={ handleStartRecipe }
-        >
-          {
-            inProgressIds.some((item) => item === id)
-              ? 'Continue Recipe'
-              : 'Start Recipe'
-          }
-        </button>
+        <div className="start-recipe-container">
+          <button
+            type="button"
+            className="start-recipe-btn"
+            data-testid="start-recipe-btn"
+            onClick={ handleStartRecipe }
+          >
+            {
+              inProgressIds.some((item) => item === id)
+                ? 'Continue Recipe'
+                : 'Start Recipe'
+            }
+          </button>
+        </div>
       )}
     </div>
   );

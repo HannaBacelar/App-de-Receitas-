@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import chefToque from '../images/chefToque.svg';
+import recipesApp from '../images/recipesApp.svg';
+import '../styles/Login.css';
+import '../index.css';
 
 function Login() {
   const [login, setLogin] = useState(false);
@@ -31,35 +35,47 @@ function Login() {
   };
 
   return (
-    <form>
-      <input
-        type="text"
-        data-testid="email-input"
-        name="email"
-        onChange={ ({ target }) => handleInputChange(target) }
-        placeholder="E-mail"
-      />
-
-      <input
-        type="password"
-        onChange={ ({ target }) => handleInputChange(target) }
-        data-testid="password-input"
-        name="password"
-        placeholder="Senha"
-      />
-
-      <button
-        disabled={ isButtonDisabled }
-        onClick={ handleClick }
-        type="submit"
-        data-testid="login-submit-btn"
-      >
-        Enter
-      </button>
-      {
-        login && <Redirect to="/foods" />
-      }
-    </form>
+    <div className="Login">
+      <div className="logo-div">
+        <img width="48" height="42" src={ chefToque } alt="Chef Toque" />
+        <img src={ recipesApp } alt="Recipes App" />
+      </div>
+      <form className="login-form">
+        <label htmlFor="email">
+          <span>Login</span>
+          <input
+            type="text"
+            id="email"
+            data-testid="email-input"
+            name="email"
+            onChange={ ({ target }) => handleInputChange(target) }
+            placeholder="E-mail"
+          />
+        </label>
+        <label htmlFor="password">
+          <span>Password</span>
+          <input
+            id="password"
+            type="password"
+            onChange={ ({ target }) => handleInputChange(target) }
+            data-testid="password-input"
+            name="password"
+            placeholder="Senha"
+          />
+        </label>
+        <button
+          disabled={ isButtonDisabled }
+          onClick={ handleClick }
+          type="submit"
+          data-testid="login-submit-btn"
+        >
+          Enter
+        </button>
+        {
+          login && <Redirect to="/foods" />
+        }
+      </form>
+    </div>
   );
 }
 

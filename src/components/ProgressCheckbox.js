@@ -12,11 +12,13 @@ function ProgressCheckbox({ index, recipe, checkedIngredients, changeHandler }) 
     >
       <input
         type="checkbox"
+        className="progress-checkbox"
         id={ `ingredient-${index}-checkbox` }
         onChange={ () => changeHandler(index) }
         checked={ checkedIngredients.includes(index) }
       />
       {`${recipe[`strIngredient${index}`]} - ${recipe[`strMeasure${index}`]}`}
+      <span className="checkmark" />
     </label>
   );
 }

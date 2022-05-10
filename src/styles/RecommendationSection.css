@@ -1,0 +1,54 @@
+.recommendation-title {
+  bottom: 24px;
+  color: white;
+  font-weight: 600;
+  left: 12px;
+  position: absolute;
+  z-index: 2;
+}
+
+.recommendation-tag {
+  bottom: 12px;
+  color: white;
+  left: 12px;
+  position: absolute;
+  z-index: 2;
+}
+
+.slider {
+  margin-bottom: 20px;
+}
+
+.slick-slide {
+  padding: 0 10px;
+}
+
+.slick-list {
+  margin: 0 -10px;
+}
+
+.recommendations-container {
+  display: flex;
+  overflow-x: overlay;
+}
+
+.recommendation-card {
+  border-radius: 16px;
+  display: flex;
+  max-height: 160px;
+  overflow: hidden;
+  position: relative;
+}
+
+.recommendation-card img {
+  max-width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.image-overlay {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, transparent 70%);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
