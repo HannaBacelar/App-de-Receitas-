@@ -43,6 +43,7 @@ function FavoriteBtn({ recipe, type, changeId, index }) {
     <button type="button" className="transparent" onClick={ handleFavorite }>
       <img
         src={ isRecipeOnFavorites ? blackHeartIcon : whiteHeartIcon }
+        className={ isRecipeOnFavorites ? 'favorite-checked' : 'favorite-unchecked' }
         alt=""
         width="26"
         height="26"

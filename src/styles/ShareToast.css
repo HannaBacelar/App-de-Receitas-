@@ -1,0 +1,26 @@
+.share-toast {
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.9);
+  border-radius: 8px;
+  bottom: 86px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  padding: 8px 16px;
+  position: fixed;
+  transition: visibility 0s linear 200ms , opacity 200ms;
+  visibility: hidden;
+  width: calc(100% - 40px);
+  z-index: 3;
+}
+
+.share-toast.visible {
+  opacity: 1;
+  transition: visibility 0s linear 0ms , opacity 200ms;
+  visibility: visible;
+}
+
+.share-toast p {
+  margin: 0;
+}

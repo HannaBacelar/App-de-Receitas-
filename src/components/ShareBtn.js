@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+// import { FaShareAlt } from 'react-icons/fa';
+import { FiShare2 } from 'react-icons/fi';
 import shareIcon from '../images/shareIcon.svg';
 
 function ShareBtn({ toastVisibilityHandler, isInACard, index, url }) {
@@ -17,11 +19,14 @@ function ShareBtn({ toastVisibilityHandler, isInACard, index, url }) {
       className="transparent"
       onClick={ handleShare }
     >
+      <FiShare2 size="24px" />
       <img
         data-testid={ isInACard ? `${index}-horizontal-share-btn` : 'share-btn' }
         src={ shareIcon }
         alt="Share this recipe"
+        style={ { display: 'none' } }
       />
+      {/* <FaShareAlt /> */}
     </button>
   );
 }

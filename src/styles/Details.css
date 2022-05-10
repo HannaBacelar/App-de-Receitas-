@@ -1,5 +1,14 @@
 .details-container {
-  padding: 16px;
+  background-color: white;
+  border-radius: 16px 16px 0 0;
+  margin-top: -16px;
+  padding: 24px 20px 20px;
+  position: absolute;
+  width: 100%;
+}
+
+.add-padding {
+  padding-bottom: 84px;
 }
 
 .details-container li {
@@ -9,79 +18,58 @@
 .details-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 32px;
 }
 
 .details-header .details-btns {
   align-items: flex-start;
   display: flex;
-  gap: 16px;
-  padding-top: 8px;
+  gap: 20px;
+  padding-top: 4px;
+}
+
+.details-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
 .details-image {
+  height: 216px;
+  object-fit: cover;
   width: 100%;
 }
 
 .details-container h3 {
-  margin-top: 32px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 24px 0 12px;
 }
 
-.recommendations-container {
+.details-container ul {
   display: flex;
-  overflow-x: overlay;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.recommendation-card {
-  height: 160px;
-  width: 50%;
+.details-instructions {
+  line-height: 1.8rem;
 }
 
-.recommendation-img-container {
-  display: flex;
-  max-height: 50%;
+.top-overlay {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.6) 100%);
+  height: 128px;
+  position: absolute;
+  width: 100%;
 }
 
-.recommendation-img-container img {
-  object-fit: cover;
-  overflow: hidden;
+.go-back {
+  cursor: pointer;
+  left: 8px;
+  position: absolute;
+  top: 16px;
 }
 
-.slider {
-  margin-bottom: 64px;
-}
-
-.start-recipe-btn {
-  bottom: 0;
-  position: fixed;
-  width: calc(100% - 32px);
-}
-
-.share-toast {
-  align-items: center;
-  background-color: rgba(128, 128, 128, 0.9);
-  border-radius: 8px;
-  bottom: 64px;
-  color: white;
-  display: flex;
-  justify-content: center;
-
-  /* margin: 0 16px; */
-  opacity: 0;
-  padding: 8px 16px;
-  position: fixed;
-  transition: visibility 0s linear 200ms , opacity 200ms;
-  visibility: hidden;
-  width: calc(100% - 32px);
-  z-index: 3;
-}
-
-.share-toast.visible {
-  opacity: 1;
-  transition: visibility 0s linear 0ms , opacity 200ms;
-  visibility: visible;
-}
-
-.share-toast p {
-  margin: 0;
+.favorite-checked {
+  filter: invert(84%) sepia(29%)
+    saturate(6132%) hue-rotate(339deg) brightness(102%) contrast(92%);
 }
