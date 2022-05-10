@@ -1,5 +1,4 @@
-import { gapi } from 'gapi-script';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 function Login() {
@@ -8,17 +7,6 @@ function Login() {
   const [email, setEmail] = useState('');
   const [isButtonDisabled, setButtonDisabled] = useState(true);
   const [password, setPassword] = useState('');
-
-  useEffect(() => {
-    function start() {
-      gapi.client.init({
-        clientId,
-        scope: '',
-      });
-    }
-
-    gapi.load('client:auth2', start);
-  });
 
   const verifyForm = () => {
     const emailFormat = /[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-zA-Z.]*\w$/;
