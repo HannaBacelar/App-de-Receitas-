@@ -3,12 +3,13 @@
 * {
   box-sizing: border-box;
   padding: 0;
+  margin: 0;
 }
 
 :root {
-  --main-color: rgb(255,255,255),
-  --orange: rgb(245, 158, 47),
-  --text-color: rgb(0,0,0),
+  --main-color: rgb(255,255,255);
+  --orange: rgb(245, 158, 47);
+  --text-color: rgb(0,0,0);
 }
 
 html {

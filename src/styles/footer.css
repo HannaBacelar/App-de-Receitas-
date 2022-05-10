@@ -1,0 +1,34 @@
+footer {
+  align-items: center;
+  background-color: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  bottom: 0;
+  display: flex;
+  font-size: 0.857rem;
+  gap: 8px;
+  justify-content: space-around;
+  padding: 16px;
+  position: fixed;
+  width: 100%;
+}
+
+.footer-btn--content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+}
+
+.footer-btn, .footer-btn:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.footer-btn:hover {
+  color: black;
+}
+
+.footer-btn--active {
+  color: var(--orange);
+}

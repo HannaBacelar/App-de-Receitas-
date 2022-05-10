@@ -1,57 +1,57 @@
 import React from 'react';
 import '../App.css';
-import '../css/footer.css';
-import { Link } from 'react-router-dom';
-import drinkIcon from '../images/drinkIcon.svg';
-import exploreIcon from '../images/exploreIcon.svg';
-import mealIcon from '../images/mealIcon.svg';
+import '../styles/footer.css';
+import { NavLink } from 'react-router-dom';
+import { FaUtensils, FaHeart, FaCompass, FaGlassMartiniAlt } from 'react-icons/fa';
 
 function Footer() {
   return (
     <div>
       <footer data-testid="footer">
-        <Link
-          to="/drinks"
+        <NavLink
+          to="/foods"
+          activeClassName="footer-btn--active"
+          className="footer-btn"
         >
-          <button
-            type="button"
-
-          >
-            <img
+          <div className="footer-btn--content">
+            <FaUtensils size="1.2rem" data-testid="food-bottom-btn" alt="foods" />
+            <span>Foods</span>
+          </div>
+        </NavLink>
+        <NavLink
+          to="/drinks"
+          activeClassName="footer-btn--active"
+          className="footer-btn"
+        >
+          <div className="footer-btn--content">
+            <FaGlassMartiniAlt
+              size="1.2rem"
               data-testid="drinks-bottom-btn"
-              src={ drinkIcon }
               alt="drinks"
             />
-          </button>
-        </Link>
-        <Link
+            <span>Drinks</span>
+          </div>
+        </NavLink>
+        <NavLink
           to="/explore"
+          className="footer-btn"
+          activeClassName="footer-btn--active"
         >
-          <button
-            type="button"
-
-          >
-            <img
-              data-testid="explore-bottom-btn"
-              src={ exploreIcon }
-              alt="explorar"
-            />
-          </button>
-        </Link>
-        <Link
-          to="/foods"
+          <div className="footer-btn--content">
+            <FaCompass size="1.2rem" data-testid="explore-bottom-btn" alt="explore" />
+            <span>Explore</span>
+          </div>
+        </NavLink>
+        <NavLink
+          to="/favorite-recipes"
+          className="footer-btn"
+          activeClassName="footer-btn--active"
         >
-          <button
-            type="button"
-
-          >
-            <img
-              data-testid="food-bottom-btn"
-              src={ mealIcon }
-              alt="foods"
-            />
-          </button>
-        </Link>
+          <div className="footer-btn--content">
+            <FaHeart size="1.2rem" alt="favorite" />
+            <span>Favorites</span>
+          </div>
+        </NavLink>
       </footer>
     </div>
 
