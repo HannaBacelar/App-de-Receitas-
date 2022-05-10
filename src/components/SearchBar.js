@@ -51,7 +51,6 @@ function SearchBar({ pageTitle }) {
           />
           {' '}
           Ingredient
-          {/* <span className="checkmark" /> */}
         </label>
 
         <label htmlFor="name-search-radio">
@@ -64,7 +63,6 @@ function SearchBar({ pageTitle }) {
           />
           {' '}
           Name
-          <span className="checkmark" />
         </label>
 
         <label htmlFor="first-letter-search-radio">
@@ -77,7 +75,6 @@ function SearchBar({ pageTitle }) {
           />
           {' '}
           First Letter
-          <span className="checkmark" />
         </label>
       </div>
     </div>

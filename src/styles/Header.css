@@ -1,5 +1,39 @@
+/* stylelint-disable property-no-vendor-prefix */
+
+/* stylelint-disable value-no-vendor-prefix */
 .header-top-row {
+  align-items: flex-end;
+  background: white;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  margin: 0 16px;
+}
+
+.header-top-row h1 {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  font-size: 32px;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.icons {
   align-items: center;
   display: flex;
+  height: 50px;
   justify-content: space-between;
+}
+
+.profile-icon {
+  color: black;
+  font-size: 28px;
+  margin-left: 10px;
+}
+
+.search-button {
+  background-color: transparent;
+  border: none;
+  font-size: 28px;
+  margin-right: 10px;
 }

@@ -52,7 +52,7 @@
 .search-bar {
   background: white;
   border-radius: 0 0 16px 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 20px;
