@@ -24,24 +24,26 @@
 .explore-link button {
   align-items: center;
   background-color: white;
-  border: #f59e2f solid 1px;
-  border-radius: 10px;
-  color: #f59e2f;
+  border: var(--orange) solid 1px;
+  border-radius: 8px;
+  color: var(--orange);
   display: flex;
+  font-weight: 600;
   justify-content: center;
   margin-top: 20px;
+  padding: 12px 16px;
   position: relative;
   width: 90%;
 }
 
 .explore-link button:hover {
-  background-color: #f59e2f;
+  background-color: var(--orange);
   color: white;
   text-decoration: none;
 }
 
 .explore-link button:active {
-  background-color: #f59e2f;
+  background-color: var(--orange);
   color: white;
   opacity: 80%;
   text-decoration: none;

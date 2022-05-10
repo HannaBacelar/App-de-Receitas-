@@ -3,9 +3,9 @@
 /* stylelint-disable property-no-vendor-prefix */
 .dropdown {
   background-color: white;
-  border: 1px solid #f59e2f;
+  border: 1px solid var(--orange);
   border-radius: 8px;
-  color: #f59e2f;
+  color: var(--orange);
   font-size: 20px;
   margin: 0 auto 20px;
   padding: 8px;
