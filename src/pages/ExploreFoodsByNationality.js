@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Card from '../components/Card';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import '../styles/ExploreNationality.css';
 import { fetchAPINationality, fetchApiNationalityRecipes } from '../redux/actions';
+import '../styles/ExploreNationality.css';
 
 function ExploreFoodsByNationality() {
   const dispatch = useDispatch();
@@ -26,31 +26,32 @@ function ExploreFoodsByNationality() {
         displaySearch
         pageTitle="Explore Nationalities"
       />
-
-      <select
-        className="dropdonw"
-        data-testid="explore-by-nationality-dropdown"
-        name="dropdonw"
-        onChange={ ({ target: { value } }) => {
-          dispatch(fetchApiNationalityRecipes(value));
-        } }
-      >
-        <option
-          value="All"
-          data-testid="All-option"
+      <div className="selects">
+        <select
+          className="dropdown"
+          data-testid="explore-by-nationality-dropdown"
+          name="dropdonw"
+          onChange={ ({ target: { value } }) => {
+            dispatch(fetchApiNationalityRecipes(value));
+          } }
         >
-          All
-        </option>
-        {
-          listNationality.map((element, index) => (
-            <option
-              key={ element.strArea + index }
-              data-testid={ `${element.strArea}-option` }
-            >
-              {element.strArea}
-            </option>))
-        }
-      </select>
+          <option
+            value="All"
+            data-testid="All-option"
+          >
+            All
+          </option>
+          {
+            listNationality.map((element, index) => (
+              <option
+                key={ element.strArea + index }
+                data-testid={ `${element.strArea}-option` }
+              >
+                {element.strArea}
+              </option>))
+          }
+        </select>
+      </div>
       <div className="recipes-cards-container">
         {
           listNationalityRecipes && listNationalityRecipes.map((meal, index) => {
