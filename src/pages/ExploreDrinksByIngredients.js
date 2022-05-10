@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import { setDrinkSearchIngredient } from '../redux/actions/index';
-import '../css/ExploreFoodsByIngredients.css';
+import '../styles/ExploreByIngredients.css';
 
 function ExploreDrinksByIngredients() {
   const [ingredients, setIngredients] = useState([]);
@@ -44,13 +44,14 @@ function ExploreDrinksByIngredients() {
               value={ e.strIngredient1 }
               onClick={ () => handleClick(e.strIngredient1) }
               data-testid={ `${index}-ingredient-card` }
-              className="ingredientCard"
             >
-              <img
-                src={ `https://www.thecocktaildb.com/images/ingredients/${e.strIngredient1}-Small.png` }
-                data-testid={ `${index}-card-img` }
-                alt={ e.strIngredient1 }
-              />
+              <div className="ingredientCard">
+                <img
+                  src={ `https://www.thecocktaildb.com/images/ingredients/${e.strIngredient1}-Small.png` }
+                  data-testid={ `${index}-card-img` }
+                  alt={ e.strIngredient1 }
+                />
+              </div>
               <h2 data-testid={ `${index}-card-name` }>{ e.strIngredient1 }</h2>
             </button>
           ))
