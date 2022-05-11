@@ -1,0 +1,5 @@
+.fav-card-btns-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}

@@ -1,8 +1,7 @@
 import React from 'react';
-import '../App.css';
-import '../styles/footer.css';
+import { FaCompass, FaGlassMartiniAlt, FaHeart, FaUtensils } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
-import { FaUtensils, FaHeart, FaCompass, FaGlassMartiniAlt } from 'react-icons/fa';
+import '../styles/Footer.css';
 
 function Footer() {
   return (

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import FavDoneCard from '../components/FavDoneCard';
 import FavAndDoneFilters from '../components/FilterDoneAndFavoritesBtns';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import ShareToast from '../components/ShareToast';
 import '../styles/DoneRecipes.css';
@@ -43,7 +44,7 @@ function DoneRecipes() {
           visibility={ setToastVisibility }
         />
       </div>
-
+      <Footer />
     </div>
   );
 }
