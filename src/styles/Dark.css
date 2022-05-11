@@ -92,3 +92,13 @@
   background-color: #282828;
   color: rgb(102, 102, 102);
 }
+
+.dark .start-recipe-btn:disabled {
+  background-color: #333;
+  color: rgb(102, 102, 102);
+}
+
+.dark .checkmark {
+  background-color: #333;
+  border-color: rgb(80, 80, 80);
+}
