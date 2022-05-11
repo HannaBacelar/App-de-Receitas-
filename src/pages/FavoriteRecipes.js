@@ -18,13 +18,16 @@ function FavoriteRecipes() {
     setFilteredRecipes([...favorites]);
   }, [favorites]);
 
-  const handleFilter = ({ target: { name } }) => {
-    if (name === 'all') {
+  const handleFilter = ({ target }) => {
+    document.querySelector('.active')?.classList.remove('active');
+    target.classList.add('active');
+
+    if (target.name === 'all') {
       setFilteredRecipes([...favorites]);
       return;
     }
     setFilteredRecipes(favorites
-      .filter((recipe) => recipe.type === name));
+      .filter((recipe) => recipe.type === target.name));
   };
 
   return (
