@@ -41,7 +41,7 @@ function SearchBar({ pageTitle }) {
         </button>
       </form>
       <div className="radio-buttons">
-        <label htmlFor="ingredient-search-radio">
+        <label htmlFor="ingredient-search-radio" className="filter-radio">
           <input
             type="radio"
             name="searchRadio"
@@ -51,9 +51,10 @@ function SearchBar({ pageTitle }) {
           />
           {' '}
           Ingredient
+          <span className="radiomark" />
         </label>
 
-        <label htmlFor="name-search-radio">
+        <label htmlFor="name-search-radio" className="filter-radio">
           <input
             type="radio"
             name="searchRadio"
@@ -63,9 +64,10 @@ function SearchBar({ pageTitle }) {
           />
           {' '}
           Name
+          <span className="radiomark" />
         </label>
 
-        <label htmlFor="first-letter-search-radio">
+        <label htmlFor="first-letter-search-radio" className="filter-radio">
           <input
             type="radio"
             name="searchRadio"
@@ -75,6 +77,7 @@ function SearchBar({ pageTitle }) {
           />
           {' '}
           First Letter
+          <span className="radiomark" />
         </label>
       </div>
     </div>

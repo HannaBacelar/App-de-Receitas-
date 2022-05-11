@@ -144,6 +144,66 @@
   text-decoration: none;
 }
 
+.filter-radio {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.filter-radio input {
+  cursor: pointer;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+
+.radiomark {
+  background-color: white;
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 50%;
+  height: 16px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 16px;
+}
+
+.filter-radio:hover input ~ .radiomark {
+  background-color: rgba(244, 153, 47, 0.12);
+  border: 1px solid rgba(244, 153, 47, 0.12);
+}
+
+.filter-radio input:checked ~ .radiomark {
+  background-color: white;
+  border: 1px solid var(--orange);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.radiomark:after {
+  content: '';
+  display: none;
+  position: absolute;
+}
+
+/* Style the checkmark/indicator */
+.filter-radio .radiomark:after {
+  background: var(--orange);
+  border-radius: 50%;
+  height: 8px;
+  left: 3px;
+  top: 3px;
+  width: 8px;
+}
+
+/* Show the checkmark when checked */
+.filter-radio input:checked ~ .radiomark:after {
+  display: block;
+}
+
 @media screen and ( min-width : 768px ) {
 
   .recipe-card {
