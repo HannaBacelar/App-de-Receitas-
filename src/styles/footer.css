@@ -21,7 +21,7 @@ footer {
   justify-content: center;
 }
 
-.footer-btn, .footer-btn:hover {
+.footer-btn {
   color: black;
   text-decoration: none;
 }
@@ -30,6 +30,7 @@ footer {
   color: black;
 }
 
-.footer-btn--active {
+.footer-btn--active, .footer-btn:hover {
   color: var(--orange);
+  text-decoration: none;
 }

@@ -12,7 +12,7 @@
 
 .done-card-content {
   flex-grow: 1;
-  max-width: calc(66% - 16px);
+  max-width: calc(60% - 16px);
   padding-top: 8px;
 }
 
@@ -28,6 +28,9 @@
 .done-card-top-text {
   color: #999;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .done-card-title-row {
@@ -45,7 +48,6 @@
 
 .done-card-tags-container {
   display: flex;
-  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -55,11 +57,14 @@
   border-radius: 16px;
   color: var(--orange);
   font-size: 0.85rem;
+  overflow: hidden;
   padding: 3px 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .done-card-img-container {
-  flex-basis: 33%;
+  flex-basis: 40%;
   flex-shrink: 0;
 }
 

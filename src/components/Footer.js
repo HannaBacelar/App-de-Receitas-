@@ -1,5 +1,8 @@
 import React from 'react';
-import { FaCompass, FaGlassMartiniAlt, FaHeart, FaUtensils } from 'react-icons/fa';
+import {
+  FaCheck, FaCompass,
+  FaGlassMartiniAlt, FaHeart, FaUtensils,
+} from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import '../styles/Footer.css';
 
@@ -39,6 +42,16 @@ function Footer() {
           <div className="footer-btn--content">
             <FaCompass size="1.2rem" data-testid="explore-bottom-btn" alt="explore" />
             <span>Explore</span>
+          </div>
+        </NavLink>
+        <NavLink
+          to="/done-recipes"
+          className="footer-btn"
+          activeClassName="footer-btn--active"
+        >
+          <div className="footer-btn--content">
+            <FaCheck size="1.2rem" alt="favorite" />
+            <span>Done</span>
           </div>
         </NavLink>
         <NavLink
