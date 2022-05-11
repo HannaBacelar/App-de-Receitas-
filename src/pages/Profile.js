@@ -25,7 +25,7 @@ function Profile() {
       <Header
         pageTitle="Profile"
       />
-      <section className="container">
+      <section className="profile-container">
         <h2
           data-testid="profile-email"
         >

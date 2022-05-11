@@ -1,26 +1,24 @@
-.container {
+.profile-container {
   align-items: center;
   display: flex;
   flex-flow: column;
   gap: 20px;
   justify-content: space-between;
+  padding: 20px 20px 0;
 }
 
-.container h2 {
+.profile-container h2 {
   align-self: flex-start;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 600;
-  line-height: 17px;
-  margin-left: 16px;
-  margin-top: 20px;
 }
 
-.container h2 span {
+.profile-container h2 span {
   font-size: 14px;
   font-weight: 400;
 }
 
-.container button {
+.profile-container button {
   align-items: center;
   background-color: white;
   border: var(--orange) solid 1px;
@@ -31,10 +29,18 @@
   justify-content: center;
   padding: 12px 16px;
   position: relative;
-  width: 90%;
+  width: 100%;
 }
 
-.container button:hover {
+.logout-btn button {
+  background-color: transparent;
+  border-style: none;
+  color: red;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.profile-container button:hover {
   background-color: var(--orange);
   color: white;
   text-decoration: none;
@@ -46,13 +52,6 @@
   margin-top: 20px;
 }
 
-.logout-btn button {
-  background-color: transparent;
-  border-style: none;
-  color: red;
-  font-size: 14px;
-  font-weight: 500;
-}
 
 .button-icons {
   margin-left: 0;
