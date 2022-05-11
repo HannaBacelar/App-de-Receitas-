@@ -1,5 +1,5 @@
 .dropdown {
-  background-color: white;
+  background-color: transparent;
   border: 1px solid var(--orange);
   border-radius: 8px;
   color: var(--orange);

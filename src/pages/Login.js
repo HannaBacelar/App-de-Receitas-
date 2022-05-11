@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import chefToque from '../images/chefToque.svg';
 import recipesApp from '../images/recipesApp.svg';
-import '../styles/Login.css';
 import '../index.css';
+import '../styles/Login.css';
 
 function Login() {
   const [login, setLogin] = useState(false);
@@ -67,6 +67,7 @@ function Login() {
           disabled={ isButtonDisabled }
           onClick={ handleClick }
           type="submit"
+          className="login-btn"
           data-testid="login-submit-btn"
         >
           Enter

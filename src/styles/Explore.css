@@ -23,7 +23,7 @@
 
 .explore-link button {
   align-items: center;
-  background-color: white;
+  background-color: transparent;
   border: var(--orange) solid 1px;
   border-radius: 8px;
   color: var(--orange);

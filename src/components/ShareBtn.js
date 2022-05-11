@@ -16,7 +16,7 @@ function ShareBtn({ toastVisibilityHandler, isInACard, index, url }) {
   return (
     <button
       type="button"
-      className="transparent"
+      className="transparent share-btn"
       onClick={ handleShare }
     >
       <FiShare2 size="24px" />

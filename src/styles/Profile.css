@@ -4,7 +4,7 @@
   flex-flow: column;
   gap: 20px;
   justify-content: space-between;
-  padding: 20px 20px 0;
+  padding: 20px;
 }
 
 .profile-container h2 {
@@ -20,7 +20,7 @@
 
 .profile-container button {
   align-items: center;
-  background-color: white;
+  background-color: transparent;
   border: var(--orange) solid 1px;
   border-radius: 8px;
   color: var(--orange);
@@ -32,12 +32,19 @@
   width: 100%;
 }
 
-.logout-btn button {
+.preference-btn button {
   background-color: transparent;
   border-style: none;
-  color: red;
   font-size: 14px;
   font-weight: 500;
+}
+
+.logout button {
+  color: red;
+}
+
+.toggle-dark button {
+  color: var(--orange);
 }
 
 .profile-container button:hover {
@@ -46,12 +53,11 @@
   text-decoration: none;
 }
 
-.logout-btn {
+.preference-btn {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
-
 
 .button-icons {
   margin-left: 0;

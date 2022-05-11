@@ -94,3 +94,7 @@ export const setRedirectStatus = (payload) => ({
   type: 'SET_REDIRECT_STATUS',
   payload,
 });
+
+export const setDarkMode = () => ({
+  type: 'SET_DARK_MODE',
+});

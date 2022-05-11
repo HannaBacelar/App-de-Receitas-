@@ -11,7 +11,7 @@ function Header(props) {
 
   return (
     <header>
-      <div className="header-top-row">
+      <div className={ `header-top-row ${displaySearchBar ? 'search-activated' : ''}` }>
         <h1 data-testid="page-title">{ pageTitle }</h1>
         <div className="icons">
           {displaySearch && (

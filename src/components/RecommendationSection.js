@@ -9,6 +9,7 @@ function RecommendationsSection({ recommendations }) {
     infinite: false,
     slidesToShow: 2,
     slidesToScroll: 2,
+    arrows: false,
   };
 
   return (
