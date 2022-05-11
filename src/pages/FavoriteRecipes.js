@@ -5,6 +5,7 @@ import FavAndDoneFilters from '../components/FilterDoneAndFavoritesBtns';
 import Header from '../components/Header';
 import ShareToast from '../components/ShareToast';
 import Footer from '../components/Footer';
+import '../styles/FavoriteRecipes.css';
 
 function FavoriteRecipes() {
   const favorites = useSelector((state) => state.savedRecipes.favoriteRecipes);
@@ -32,7 +33,6 @@ function FavoriteRecipes() {
         pageTitle="Favorite Recipes"
       />
       <FavAndDoneFilters handleFilter={ handleFilter } />
-
       <ShareToast isToastVisible={ isToastVisible } />
 
       <FavDoneCard

@@ -28,12 +28,14 @@ function FavDoneCard({
           </p>
           <div className="done-card-title-row">
             <h3 data-testid={ `${index}-horizontal-name` }>{recipe.name}</h3>
-            <ShareBtn
-              toastVisibilityHandler={ visibility }
-              isInACard
-              index={ index }
-              url={ `${protocol}//${host}/${recipe.type}s/${recipe.id}` }
-            />
+            <div className="share-and-fav-card">
+              <ShareBtn
+                toastVisibilityHandler={ visibility }
+                isInACard
+                index={ index }
+                url={ `${protocol}//${host}/${recipe.type}s/${recipe.id}` }
+              />
+            </div>
           </div>
 
           <p data-testid={ `${index}-horizontal-done-date` } className="done-card-date">
@@ -56,12 +58,14 @@ function FavDoneCard({
                 </div>
               )
               : (
-                <FavoriteBtn
-                  recipe={ recipe }
-                  type={ recipe.type }
-                  index={ index }
-                  changeId
-                />)
+                <div className="share-and-fav-card">
+                  <FavoriteBtn
+                    recipe={ recipe }
+                    type={ recipe.type }
+                    index={ index }
+                    changeId
+                  />
+                </div>)
           }
         </div>
       </div>
