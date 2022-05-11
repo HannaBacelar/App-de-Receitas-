@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaCheckCircle, FaHeart } from 'react-icons/fa';
 import { Redirect } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import '../styles/Profile.css';
 
 function Profile() {
   const [changeToDonePage, setChangeToDonePage] = useState(false);
   const [changeToFavPage, setChangeToFavPage] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
   const [logout, setLogout] = useState(false);
+
+  useEffect(() => {
+    setUserEmail(JSON.parse(localStorage.getItem('user')));
+  }, []);
 
   const handleClearClick = () => {
     localStorage.clear();
@@ -18,11 +25,13 @@ function Profile() {
       <Header
         pageTitle="Profile"
       />
-      <section>
+      <section className="container">
         <h2
           data-testid="profile-email"
         >
-          { localStorage.getItem('user') }
+          Hello,
+          {' '}
+          <span>{ userEmail.email }</span>
         </h2>
         <button
           type="button"
@@ -30,6 +39,7 @@ function Profile() {
           name="donePage"
           onClick={ () => setChangeToDonePage(!changeToDonePage) }
         >
+          <FaHeart size="1.2rem" className="button-icons" />
           Done Recipes
         </button>
         {changeToDonePage && <Redirect to="/done-recipes" /> }
@@ -39,9 +49,12 @@ function Profile() {
           name="favPage"
           onClick={ () => setChangeToFavPage(!changeToFavPage) }
         >
+          <FaCheckCircle size="1.2rem" className="button-icons" />
           Favorite Recipes
         </button>
         {changeToFavPage && <Redirect to="/favorite-recipes" /> }
+      </section>
+      <div className="logout-btn">
         <button
           type="button"
           data-testid="profile-logout-btn"
@@ -49,8 +62,8 @@ function Profile() {
         >
           Logout
         </button>
-        { logout && <Redirect to="/" />}
-      </section>
+      </div>
+      { logout && <Redirect to="/" />}
       <Footer />
     </div>
   );
