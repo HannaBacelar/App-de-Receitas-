@@ -1,0 +1,94 @@
+.dark {
+  background-color: #212121;
+  color: #eee;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5 {
+  color: white;
+}
+
+.dark .filter-btn {
+  background-color: #282828;
+}
+
+.dark .active {
+  background-color: rgba(245, 158, 47, 0.12);
+}
+
+.dark .search-bar, .dark footer {
+  background-color: #282828;
+}
+
+.dark .search-activated {
+  background-color: #282828;
+}
+
+.dark .footer-btn {
+  color: white;
+}
+
+.dark .footer-btn--active {
+  color: var(--orange);
+}
+
+.dark .radiomark {
+  background-color: #282828;
+  border-color: rgb(137, 137, 137);
+}
+
+.dark .filter-radio input:checked ~ .radiomark {
+  background-color: #282828;
+}
+
+.dark .search-input, .dark .login-form input {
+  background-color: #333;
+  border: 1px solid #333;
+  color: #eee;
+}
+
+.dark .search-bar button {
+  background-color: #282828;
+}
+
+.dark .search-bar button:hover {
+  background-color: var(--orange);
+}
+
+.dark .profile-icon {
+  color: white;
+}
+
+.dark .details-container {
+  background-color: rgb(40, 40, 40);
+}
+
+.dark .start-recipe-container {
+  background: linear-gradient(0deg, rgb(40, 40, 40) 40%, transparent 100%);
+}
+
+.dark .share-btn {
+  color: white;
+}
+
+.dark .favorite-unchecked {
+  filter: brightness(0) invert(1);
+}
+
+.dark .ingredientCard {
+  background-color: #282828;
+}
+
+.dark .slick-dots li button:before {
+  color: white;
+}
+
+/* stylelint-disable-next-line selector-no-qualifying-type */
+.dark .slick-dots li.slick-active button:before {
+  color: white;
+  opacity: 1;
+}
+
+.dark .login-btn:disabled {
+  background-color: #282828;
+  color: rgb(102, 102, 102);
+}

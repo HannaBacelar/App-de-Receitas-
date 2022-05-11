@@ -40,7 +40,7 @@ function FavoriteBtn({ recipe, type, changeId, index }) {
   };
 
   return (
-    <button type="button" className="transparent" onClick={ handleFavorite }>
+    <button type="button" className="transparent fav-btn" onClick={ handleFavorite }>
       <img
         src={ isRecipeOnFavorites ? blackHeartIcon : whiteHeartIcon }
         className={ isRecipeOnFavorites ? 'favorite-checked' : 'favorite-unchecked' }

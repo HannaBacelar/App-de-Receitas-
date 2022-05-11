@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { FaCheckCircle, FaHeart } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import { setDarkMode } from '../redux/actions';
 import '../styles/Profile.css';
 
 function Profile() {
@@ -10,6 +12,8 @@ function Profile() {
   const [changeToFavPage, setChangeToFavPage] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const [logout, setLogout] = useState(false);
+  const dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.preferences.darkMode);
 
   useEffect(() => {
     setUserEmail(JSON.parse(localStorage.getItem('user')));
@@ -54,7 +58,16 @@ function Profile() {
         </button>
         {changeToFavPage && <Redirect to="/favorite-recipes" /> }
       </section>
-      <div className="logout-btn">
+      <div className="preference-btn toggle-dark">
+        <button
+          type="button"
+          data-testid="profile-logout-btn"
+          onClick={ () => dispatch(setDarkMode()) }
+        >
+          {`Turn ${darkMode ? 'off' : 'on'} dark mode`}
+        </button>
+      </div>
+      <div className="preference-btn logout">
         <button
           type="button"
           data-testid="profile-logout-btn"

@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import Details from './pages/Details';
 import DoneRecipes from './pages/DoneRecipes';
@@ -17,8 +18,23 @@ import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import './styles/App.css';
+import './styles/Dark.css';
 
 function App() {
+  const darkMode = useSelector((state) => state.preferences.darkMode);
+  console.log(darkMode);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+    // const savedDarkState = JSON.parse(localStorage.getItem('darkMode'));
+    // setDarkMode(savedDarkState);
+    // if (savedDarkState) document.body.classList.add('dark');
+  }, [darkMode]);
+
   return (
     <div className="global-container">
       <Switch>

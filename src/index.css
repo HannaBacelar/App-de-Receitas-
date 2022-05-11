@@ -29,6 +29,7 @@ code {
 
 button {
   padding: 8px 16px;
+  transition: 0.2s;
 }
 
 button.transparent {
