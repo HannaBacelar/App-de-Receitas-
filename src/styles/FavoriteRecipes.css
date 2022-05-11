@@ -1,46 +1,5 @@
-  .done-card-content {
-    flex-grow: 1;
-    max-width: calc(66% - 16px);
-    padding-top: 8px;
-  }
-  
-  .done-card-content h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  
-  .done-card-top-text {
-    color: #999;
-    margin: 0;
-  }
-  
-  .done-card-title-row {
-    align-items: center;
-    display: flex;
-    gap: 8px;
-    justify-content: space-between;
-    margin-bottom: 8px;
-  }
-
-  
-  .done-card-img-container {
-    flex-basis: 33%;
-    flex-shrink: 0;
-  }
-  
-  .done-recipe-image {
-    border-radius: 16px;
-    max-width: 100%;
-  }
-/* a classe que pega o botão de compartilhar e o botão de favoritar
-
-  .share-and-fav-card { 
-    background-color: red;
-    display: flex;
-  } 
-  
-  */
+.fav-card-btns-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}

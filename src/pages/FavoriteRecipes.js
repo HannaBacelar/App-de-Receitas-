@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import FavDoneCard from '../components/FavDoneCard';
 import FavAndDoneFilters from '../components/FilterDoneAndFavoritesBtns';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import ShareToast from '../components/ShareToast';
-import Footer from '../components/Footer';
 import '../styles/FavoriteRecipes.css';
 
 function FavoriteRecipes() {
@@ -33,14 +33,16 @@ function FavoriteRecipes() {
         pageTitle="Favorite Recipes"
       />
       <FavAndDoneFilters handleFilter={ handleFilter } />
-      <ShareToast isToastVisible={ isToastVisible } />
 
-      <FavDoneCard
-        protocol={ protocol }
-        host={ host }
-        filteredRecipes={ filteredRecipes }
-        visibility={ setToastVisibility }
-      />
+      <div className="done-cards-container">
+        <ShareToast isToastVisible={ isToastVisible } />
+        <FavDoneCard
+          protocol={ protocol }
+          host={ host }
+          filteredRecipes={ filteredRecipes }
+          visibility={ setToastVisibility }
+        />
+      </div>
       <Footer />
     </div>
   );

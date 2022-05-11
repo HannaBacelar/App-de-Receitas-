@@ -7,9 +7,12 @@ import ShareBtn from './ShareBtn';
 function FavDoneCard({
   filteredRecipes, protocol, host, visibility, tagVisibility }) {
   return (
-    filteredRecipes.length > 0 ? filteredRecipes.map((recipe, index) => (
+    filteredRecipes.length > 0 && filteredRecipes.map((recipe, index) => (
       <div key={ recipe.id } className="done-recipe-card">
-        <Link to={ `/${recipe.type}s/${recipe.id}` } className="done-card-img-container">
+        <Link
+          to={ `/${recipe.type}s/${recipe.id}` }
+          className="done-card-img-container"
+        >
           <img
             data-testid={ `${index}-horizontal-image` }
             src={ recipe.image }
@@ -28,19 +31,21 @@ function FavDoneCard({
           </p>
           <div className="done-card-title-row">
             <h3 data-testid={ `${index}-horizontal-name` }>{recipe.name}</h3>
-            <div className="share-and-fav-card">
+            { tagVisibility && (
               <ShareBtn
                 toastVisibilityHandler={ visibility }
                 isInACard
                 index={ index }
                 url={ `${protocol}//${host}/${recipe.type}s/${recipe.id}` }
               />
-            </div>
+            )}
           </div>
 
-          <p data-testid={ `${index}-horizontal-done-date` } className="done-card-date">
-            {`Done in: ${recipe.doneDate}`}
-          </p>
+          {recipe.doneDate
+          && (
+            <p data-testid={ `${index}-horizontal-done-date` } className="done-card-date">
+              {`Done in: ${recipe.doneDate}`}
+            </p>)}
           {
             tagVisibility
               ? (
@@ -58,7 +63,13 @@ function FavDoneCard({
                 </div>
               )
               : (
-                <div className="share-and-fav-card">
+                <div className="fav-card-btns-row">
+                  <ShareBtn
+                    toastVisibilityHandler={ visibility }
+                    isInACard
+                    index={ index }
+                    url={ `${protocol}//${host}/${recipe.type}s/${recipe.id}` }
+                  />
                   <FavoriteBtn
                     recipe={ recipe }
                     type={ recipe.type }
@@ -69,7 +80,7 @@ function FavDoneCard({
           }
         </div>
       </div>
-    )) : ''
+    ))
   );
 }
 
